@@ -1,0 +1,62 @@
+body {
+    background-color: #e3e3e4;
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    border: 0px;
+    border-spacing: 30px;
+    border-collapse: separate;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+}
+name {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #7284b7;
+}
+td {
+    padding: 20px;
+}
+
+.top {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.large-spacing {
+    margin-top: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: blue;
+}
+
+.top_text {
+    text-align: justify;
+}
+
+.pic_region {
+    text-align: center;
+}
+
+.profile_pic {
+    width: 100%;
+}
+
+.small-font {
+    font-size: small;
+}
+
+.justify {
+    text-align: justify;
+}
+
