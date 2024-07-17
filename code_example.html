@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook Style Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 text-gray-900">
+    <!-- Container for the notebook -->
+    <div class="min-h-screen bg-white py-10 px-5 md:px-10">
+        <h1 class="text-3xl font-bold mb-6">Jupyter Notebook Simulation</h1>
+
+        <!-- Cell 1: Markdown -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow mb-6">
+            <h2 class="text-xl font-semibold">Markdown Cell Example</h2>
+            <p>This is a <strong>markdown</strong> cell where you can add text and format it with HTML or Markdown.</p>
+        </div>
+
+        <!-- Cell 2: Code -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow mb-6">
+            <h2 class="text-xl font-semibold">Code Cell Example</h2>
+            <pre class="bg-black text-white p-4 rounded"><code>def hello_world():
+    print("Hello, world!")
+
+hello_world()</code></pre>
+        </div>
+
+        <!-- Cell 3: Output -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow mb-6">
+            <h2 class="text-xl font-semibold">Output Cell Example</h2>
+            <div class="bg-gray-200 p-2 rounded">
+                <p>Hello, world!</p>
+            </div>
+        </div>
+
+        <!-- Cell 4: Interactive Example (simulated) -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow mb-6">
+            <h2 class="text-xl font-semibold">Interactive Cell Example</h2>
+            <button class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300">
+                Run Code
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-4 text-gray-600">
+        © 2024 My Jupyter Notebook Simulation
+    </footer>
+</body>
+</html>
