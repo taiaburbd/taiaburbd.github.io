@@ -1,0 +1,10 @@
+my-website/
+  pages/
+    index.js
+    about.js
+    contact.js
+    // Other pages
+  public/
+  styles/
+  components/
+  // Other directories
