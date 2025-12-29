@@ -1,37 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 const Footer: React.FC = () => {
-  const scriptContainerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    // Remove any existing ClusterMaps script
-    const existingScript = document.getElementById('clustrmaps');
-    if (existingScript) {
-      existingScript.remove();
-    }
-
     // Load ClusterMaps script
-    if (scriptContainerRef.current) {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.id = 'clustrmaps';
-      script.src = '//clustrmaps.com/map_v2.js?d=1FdDCe9Mp7tl9ELfel-yvD1xuuvnDkAqgwmRv4TFV0M&cl=ffffff&w=a';
-      script.async = true;
-      
-      scriptContainerRef.current.appendChild(script);
-    }
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'clustrmaps';
+    script.src = '//clustrmaps.com/map_v2.js?d=1FdDCe9Mp7tl9ELfel-yvD1xuuvnDkAqgwmRv4TFV0M&cl=ffffff&w=a';
+    
+    // Append to body like in the original HTML
+    document.body.appendChild(script);
 
     return () => {
       // Cleanup on unmount
       const scriptToRemove = document.getElementById('clustrmaps');
-      if (scriptToRemove && scriptToRemove.parentNode) {
-        scriptToRemove.parentNode.removeChild(scriptToRemove);
-      }
-      
-      // Also remove any ClusterMaps generated content
-      const clusterContent = document.querySelector('#clustrmaps-widget');
-      if (clusterContent && clusterContent.parentNode) {
-        clusterContent.parentNode.removeChild(clusterContent);
+      if (scriptToRemove) {
+        document.body.removeChild(scriptToRemove);
       }
     };
   }, []);
@@ -39,13 +23,17 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="max-w-5xl mx-auto px-4">
-        {/* Visitor Counter */}
-        <div className="flex justify-center mb-8 p-4">
-          <div 
-            ref={scriptContainerRef} 
-            id="clustrmaps-container" 
-            className="bg-white rounded-lg p-2"
-          ></div>
+        {/* Visitor Counter - ClusterMaps will inject here */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-lg p-4 inline-block">
+            <a href="https://clustrmaps.com/site/1c0t0" title="Visit tracker">
+              <img 
+                src="//www.clustrmaps.com/map_v2.png?d=1FdDCe9Mp7tl9ELfel-yvD1xuuvnDkAqgwmRv4TFV0M&cl=ffffff" 
+                alt="Visitor Map"
+                className="max-w-full h-auto"
+              />
+            </a>
+          </div>
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center">
