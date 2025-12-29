@@ -57,6 +57,12 @@ const Navbar: React.FC = () => {
                 >
                   Challenges
                 </Link>
+                <Link 
+                  to="/photo-gallery" 
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/photo-gallery') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
+                >
+                  Photos
+                </Link>
               </div>
             </div>
           </div>
@@ -94,6 +100,13 @@ const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Challenges
+            </Link>
+            <Link 
+              to="/photo-gallery" 
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isActive('/photo-gallery') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Photos
             </Link>
           </div>
         </div>

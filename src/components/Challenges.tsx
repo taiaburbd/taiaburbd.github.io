@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import challengesData from '../data/challenges.json';
 
 interface Challenge {
   title: string;
@@ -8,23 +9,8 @@ interface Challenge {
   description: string;
 }
 
-const challenges: Challenge[] = [
-  {
-    title: 'OpenAI Datathon',
-    date: 'May 2024',
-    description: 'Participated in an innovative datathon focused on developing AI solutions using OpenAI technologies.'
-  },
-  {
-    title: 'Hackathon INSERM',
-    date: 'Apr 2024',
-    description: 'Contributed to medical imaging research with focus on Comparative Analysis for Hippocampus Segmentation in Mouse Brain.'
-  },
-  {
-    title: 'MAIA Classification Challenge',
-    date: 'Jan 2024',
-    description: 'Competed in a medical imaging challenge involving 3D volume image registering CT lung scans of COPD patients.'
-  }
-];
+// Get first 3 challenges for home page
+const challenges: Challenge[] = challengesData.challenges.slice(0, 3);
 
 const Challenges: React.FC = () => {
   return (

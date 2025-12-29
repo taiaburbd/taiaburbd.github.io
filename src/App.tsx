@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import AcademicProjectsPage from './pages/AcademicProjectsPage';
 import ChallengesPage from './pages/ChallengesPage';
 import EducationPage from './pages/EducationPage';
+import PhotoGalleryPage from './pages/PhotoGalleryPage';
 import InsermProjectPage from './pages/project-details/InsermProjectPage';
 import TrafficSimulationPage from './pages/project-details/TrafficSimulationPage';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/academic-projects" element={<AcademicProjectsPage />} />
             <Route path="/challenges" element={<ChallengesPage />} />
             <Route path="/education" element={<EducationPage />} />
+            <Route path="/photo-gallery" element={<PhotoGalleryPage />} />
             <Route path="/projects/inserm-3d-seg" element={<InsermProjectPage />} />
             <Route path="/projects/traffic-simulation" element={<TrafficSimulationPage />} />
           </Routes>

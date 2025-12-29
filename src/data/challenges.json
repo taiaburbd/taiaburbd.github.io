@@ -1,0 +1,78 @@
+{
+  "challenges": [
+    {
+      "id": "hackupc-2024",
+      "title": "HACKUPC 2024",
+      "date": "May 2024",
+      "description": "Automated brain MRI segmentation using deep learning approaches. Developed innovative solutions for medical image processing.",
+      "organizer": "The Faculty of Informatics of Barcelona (FIB), Polytechnic University of Catalonia (UPC), Spain",
+      "location": "Barcelona, Spain",
+      "logo": "/logos/hackupc_1.jpg",
+      "photo": "/photos/Hackathon_hackupc.jpg",
+      "type": "hackathon"
+    },
+    {
+      "id": "datathon-ia4care",
+      "title": "Datathon IA4care",
+      "date": "Apr 2024",
+      "description": "Automated 3D segmentation of mouse brain histological images. Comparative Analysis for Hippocampus Segmentation in Mouse Brain using advanced AI techniques.",
+      "organizer": "Eseo - Grande School D'ingénieurs, University of Burgundy, Dijon, France",
+      "location": "Dijon, France",
+      "logo": "/logos/Datathon.jpg",
+      "photo": "/photos/Datathon-2024.png",
+      "type": "datathon"
+    },
+    {
+      "id": "ct-registration",
+      "title": "CT Image Registration Challenge",
+      "date": "Jan 2024",
+      "description": "3D volume image registering CT lung scans of COPD patients. Focused on accurate alignment and analysis of pulmonary imaging data.",
+      "organizer": "University of Girona, Spain",
+      "location": "Girona, Spain",
+      "logo": "/logos/udg.png",
+      "type": "challenge"
+    },
+    {
+      "id": "bitsxlamarat",
+      "title": "bitsxlaMarató 2023",
+      "date": "Dec 2023",
+      "description": "AI-based solution for respiratory illnesses and cancer diagnostics. Collaborated with teams to develop innovative healthcare solutions.",
+      "organizer": "Faculty of Informatics of Barcelona (FIB), Barcelona Supercomputing Center (BSC), Catalonia, Spain",
+      "location": "Barcelona, Spain",
+      "logo": "/logos/bitsxiamarato.png",
+      "type": "hackathon"
+    },
+    {
+      "id": "hackeps-2023",
+      "title": "Lleidahack, HackEPS 2023",
+      "date": "Nov 2023",
+      "description": "AI-based solution for NLP (Natural Language Processing) and disease diagnostics. Built intelligent systems for healthcare applications.",
+      "organizer": "Polytechnic School of the University of Lleida, Spain",
+      "location": "Lleida, Spain",
+      "logo": "/logos/Datathon.jpg",
+      "photo": "/photos/hackeps.jpg",
+      "type": "hackathon"
+    },
+    {
+      "id": "classification-challenge",
+      "title": "Classification Challenge",
+      "date": "May 2023",
+      "description": "Alzheimer's disease classification using MRIs and gene expression data. Applied machine learning techniques for medical diagnosis.",
+      "organizer": "Italian National Research Council, Italy",
+      "location": "Cassino, Italy",
+      "logo": "/logos/CNR.png",
+      "type": "challenge"
+    },
+    {
+      "id": "qaaspc",
+      "title": "Quazi Azher Ali SAARC Programming Contest",
+      "date": "Dec 2014",
+      "description": "Problem solving - Data Structures and Algorithms. Competed in algorithmic challenges and optimization problems.",
+      "organizer": "Bangladesh University, Dhaka, Bangladesh",
+      "location": "Dhaka, Bangladesh",
+      "logo": "/logos/qaaspc.jpeg",
+      "photo": "/photos/bu_programming_contest.jpg",
+      "type": "contest"
+    }
+  ]
+}
