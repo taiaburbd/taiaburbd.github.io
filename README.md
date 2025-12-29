@@ -1,34 +1,52 @@
+# Taiabur Rahman - Portfolio
 
-# Welcome to My GitHub Profile (taiaburbd.github.io)!
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
 
-👋 Hi there! Welcome to my GitHub profile. Here you'll find a collection of projects and repositories that reflect my interests, skills, and contributions to the open-source community.
-- [taiaburbd.github.io](http://taiaburbd.github.io)
+🌐 **Live Site**: [https://taiaburbd.github.io/](https://taiaburbd.github.io/)
 
-## About Me
+## Features
 
-I am passionate about working with medical imaging, particularly MRI, CT, and microscopy. My focus lies in neuroimaging, where I explore the intricate details of the brain through various imaging techniques. I am deeply intrigued by the intersection of technology and healthcare, and I'm committed to leveraging advanced imaging technologies to enhance our understanding of neurological disorders and improve patient care.
+- Modern design with interactive backgrounds and animations
+- Fully responsive across all devices
+- Project filtering by category
+- Detailed project showcase pages
+- Education timeline with visual timeline
+- Professional challenges and achievements
+- Contact information and CV download
 
-## Projects
+## Tech Stack
 
-Here are some highlights of my projects:
+- React 19 with TypeScript
+- React Router for navigation
+- Tailwind CSS for styling
+- Shadcn-style UI components
+- Lucide React icons
 
-- Git repo: [Github link](https://github.com/taiaburbd?tab=repositories)
+## Installation
 
+Install dependencies:
+```bash
+npm install
+```
 
-Feel free to explore my repositories to find more projects and contributions!
+Start the development server:
+```bash
+npm start
+```
 
-## Contact Me
+The app will open at [http://localhost:3000](http://localhost:3000)
 
-- LinkedIn: [Taiabur, LinkedIn Profile](https://www.linkedin.com/in/taiabur-rahman/)
-- Email: [Email Address](mailto:taiaburbd@gmail.com)
-- Profile: [taiaburbd.github.io](https://taiaburbd.github.io/)
+## 📦 Build for Production
 
-Feel free to reach out if you have any questions, feedback, or just want to connect!
+```bash
+npm start
+```
 
-<!-- ## Support Me
+Build for production:
+```bash
+npm run build
+```
 
-If you find my work useful or interesting, consider supporting me:
+## License
 
-- ☕️ [Buy me a coffee](link to your coffee page or any other donation platform) -->
-
-Your support means a lot and helps me keep creating new projects. 
+MIT License - Built by Taiabur Rahman
