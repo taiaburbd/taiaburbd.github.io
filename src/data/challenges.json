@@ -1,6 +1,17 @@
 {
   "challenges": [
     {
+      "id": "gemma-hackathon-2025",
+      "title": "Solve for Health & Life Sciences with Gemma - The hackathon",
+      "date": "Jul 2025",
+      "description": "NeuroGem – Personalized Cognitive Health Monitoring using On-Device Gemma/MedGemma. A mobile-first, offline-capable tool that uses on-device Gemma/MedGemma models to monitor daily cognitive patterns from user voice or text input, evaluating semantic drift, linguistic complexity, and memory markers over time.",
+      "organizer": "Google, France",
+      "location": "Google, France",
+      "logo": "/logos/google_france.png",
+      "photo": "/photos/gemma_july_2025.jpeg",
+      "type": "hackathon"
+    },
+    {
       "id": "hackupc-2024",
       "title": "HACKUPC 2024",
       "date": "May 2024",
@@ -51,6 +62,7 @@
       "location": "Lleida, Spain",
       "logo": "/logos/Datathon.jpg",
       "photo": "/photos/hackeps.jpg",
+      "video": "https://www.youtube.com/embed/9GB2Rj5frRs",
       "type": "hackathon"
     },
     {
