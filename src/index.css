@@ -9,11 +9,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #111827;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 * {
@@ -22,57 +22,55 @@ code {
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 1s ease-in;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* ── Skeleton / shimmer loader ── */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      #f3f4f6 0%,
+      #e9eaec 40%,
+      #f3f4f6 80%
+    );
+    background-size: 200% 100%;
+    animation: shimmerMove 1.4s ease-in-out infinite;
   }
 
-  /* Blob Animation for floating elements */
+  @keyframes shimmerMove {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ── Scroll-triggered animation helpers ── */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Legacy blob (kept for compatibility) ── */
   .animate-blob {
-    animation: blob 7s infinite;
+    animation: blob 8s ease-in-out infinite;
   }
-  
+
   @keyframes blob {
-    0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-      transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
-    }
-    100% {
-      transform: translate(0px, 0px) scale(1);
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%       { transform: translate(20px, -30px) scale(1.08); }
+    66%       { transform: translate(-15px, 15px) scale(0.94); }
   }
 
-  /* Animation Delays */
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
 
-  /* Pulse Animation Enhancement */
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 0.5;
-    }
+  /* ── Section divider line ── */
+  .section-divider {
+    width: 3rem;
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #6366f1, #3b82f6);
+    margin: 0 auto;
   }
 }

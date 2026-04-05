@@ -1,113 +1,98 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
+const navLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/education', label: 'Education' },
+  { to: '/academic-projects', label: 'Projects' },
+  { to: '/challenges', label: 'Challenges' },
+  { to: '/photo-gallery', label: 'Photos' },
+];
+
 const Navbar: React.FC = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => setMobileOpen(false), [location.pathname]);
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-gray-800 sticky top-0 z-50 shadow-lg">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100'
+          : 'bg-white/80 backdrop-blur-sm'
+      }`}
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          {/* Mobile menu button */}
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              <span className="sr-only">Open main menu</span>
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="text-lg font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent select-none"
+          >
+            TR
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden sm:flex items-center gap-1">
+            {navLinks.map(({ to, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                  isActive(to)
+                    ? 'text-indigo-600 bg-indigo-50'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                {label}
+                {isActive(to) && (
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-indigo-500" />
+                )}
+              </Link>
+            ))}
           </div>
 
-          {/* Desktop menu */}
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <Link to="/" className="text-xl font-bold text-white">TR</Link>
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                <Link 
-                  to="/" 
-                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-                >
-                  Home
-                </Link>
-                <Link 
-                  to="/education" 
-                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/education') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-                >
-                  Education
-                </Link>
-                <Link 
-                  to="/academic-projects" 
-                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/academic-projects') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-                >
-                  Projects
-                </Link>
-                <Link 
-                  to="/challenges" 
-                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/challenges') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-                >
-                  Challenges
-                </Link>
-                <Link 
-                  to="/photo-gallery" 
-                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/photo-gallery') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-                >
-                  Photos
-                </Link>
-              </div>
-            </div>
-          </div>
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className="sm:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
 
       {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="sm:hidden" id="mobile-menu">
-          <div className="space-y-1 px-2 pb-3 pt-2">
-            <Link 
-              to="/" 
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isActive('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/education" 
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isActive('/education') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Education
-            </Link>
-            <Link 
-              to="/academic-projects" 
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isActive('/academic-projects') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link 
-              to="/challenges" 
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isActive('/challenges') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Challenges
-            </Link>
-            <Link 
-              to="/photo-gallery" 
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isActive('/photo-gallery') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Photos
-            </Link>
+      {mobileOpen && (
+        <div className="sm:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md">
+          <div className="px-3 pb-3 pt-2 space-y-1">
+            {navLinks.map(({ to, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                  isActive(to)
+                    ? 'bg-indigo-50 text-indigo-600'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
       )}

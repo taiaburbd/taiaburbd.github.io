@@ -1,50 +1,81 @@
 import React from 'react';
+import AnimatedSection from './AnimatedSection';
+
+const stats = [
+  { value: '10+', label: 'Years Experience' },
+  { value: '9+',  label: 'Research Projects' },
+  { value: '8+',  label: 'Hackathons' },
+  { value: '6+',  label: 'Countries Studied' },
+];
+
+const skills = [
+  { label: 'Medical Imaging',    color: 'bg-blue-50 text-blue-700 border-blue-200' },
+  { label: 'Deep Learning',      color: 'bg-violet-50 text-violet-700 border-violet-200' },
+  { label: 'Computer Vision',    color: 'bg-cyan-50 text-cyan-700 border-cyan-200' },
+  { label: 'AI Diagnostics',     color: 'bg-rose-50 text-rose-700 border-rose-200' },
+  { label: 'Software Engineering', color: 'bg-amber-50 text-amber-700 border-amber-200' },
+];
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="relative bg-gradient-to-b from-gray-50 to-white py-16">
-      {/* Decorative Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(59, 130, 246) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
-      <div className="relative max-w-5xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-          <div className="md:w-1/3">
-            <img
-              src="/images/taiabur_apr24.jpg"
-              alt="Taiabur Rahman"
-              className="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
-            />
+    <section id="about" className="bg-gray-50/60 py-20">
+      <div className="max-w-5xl mx-auto px-4">
+
+        {/* Heading */}
+        <AnimatedSection>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">About Me</h2>
+            <div className="section-divider" />
           </div>
-          <div className="md:w-2/3">
-            <p className="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+        </AnimatedSection>
+
+        {/* Stats row */}
+        <AnimatedSection delay={80}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
+            {stats.map(({ value, label }) => (
+              <div
+                key={label}
+                className="text-center py-5 px-3 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="text-3xl font-extrabold text-indigo-600 mb-1">{value}</div>
+                <div className="text-xs text-gray-500 font-medium">{label}</div>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        {/* Bio */}
+        <AnimatedSection delay={160}>
+          <div className="max-w-3xl mx-auto space-y-4 mb-10 text-gray-600 leading-relaxed">
+            <p className="text-justify">
               I am passionate about multiple aspects of medical imaging, including classification,
               segmentation, registration, and landmark identification. My enthusiasm for these fields drives
-              my desire to collaborate on innovative healthcare technology projects. Specifically, I am
-              interested in AI-driven diagnostics, telemedicine solutions, and patient data analysis. I
-              believe that advancements in these areas have the potential to revolutionize healthcare,
-              improving patient outcomes and enhancing the efficiency of medical services.
+              my desire to collaborate on innovative healthcare technology projects—specifically AI-driven
+              diagnostics, telemedicine solutions, and patient data analysis.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed text-justify">
-              I am excited about the opportunities to continue developing my skills and knowledge in medical
-              imaging. By contributing to cutting-edge research and collaborating on impactful projects, I aim
-              to make meaningful contributions to the healthcare industry. My goal is to be at the forefront
-              of technological advancements that can transform medical practices and improve patient care
-              worldwide.
+            <p className="text-justify">
+              I believe advancements in these areas have the potential to revolutionize healthcare,
+              improving patient outcomes and enhancing the efficiency of medical services. My goal is to be
+              at the forefront of technological change that transforms medical practices and improves patient
+              care worldwide.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">Medical Imaging</span>
-              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">Deep Learning</span>
-              <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold">Computer Vision</span>
-              <span className="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-semibold">AI Diagnostics</span>
-              <span className="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold">Software Engineering</span>
-            </div>
           </div>
-        </div>
+        </AnimatedSection>
+
+        {/* Skill tags */}
+        <AnimatedSection delay={240}>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {skills.map(({ label, color }) => (
+              <span
+                key={label}
+                className={`border px-4 py-1.5 rounded-full text-sm font-medium select-none ${color}`}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </AnimatedSection>
+
       </div>
     </section>
   );

@@ -1,53 +1,87 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Calendar, Trophy } from 'lucide-react';
 import challengesData from '../data/challenges.json';
+import AnimatedSection from './AnimatedSection';
 
 interface Challenge {
   title: string;
   date: string;
   description: string;
+  type?: string;
 }
 
-// Get first 3 challenges for home page
 const challenges: Challenge[] = challengesData.challenges.slice(0, 3);
+
+const typeColor: Record<string, string> = {
+  hackathon: 'bg-violet-50 text-violet-700 border-violet-200',
+  datathon:  'bg-blue-50 text-blue-700 border-blue-200',
+  challenge: 'bg-amber-50 text-amber-700 border-amber-200',
+  contest:   'bg-rose-50 text-rose-700 border-rose-200',
+};
 
 const Challenges: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50 py-16 overflow-hidden">
-      {/* Wave Pattern Background */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path fill="#3b82f6" fillOpacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-      </div>
-      <div className="relative max-w-5xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Challenges and Coding Contests</h2>
-          <p className="text-lg text-gray-600">
-            Participate in specialized datathons, hackathons, classification challenges and contests to sharpen coding skills.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="bg-white py-20">
+      <div className="max-w-5xl mx-auto px-4">
+
+        {/* Heading */}
+        <AnimatedSection>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Challenges &amp; Contests</h2>
+            <div className="section-divider" />
+            <p className="mt-4 text-sm text-gray-500 max-w-xl mx-auto">
+              Hackathons, datathons, classification challenges, and coding contests that sharpen problem-solving skills.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-5 mb-10">
           {challenges.map((challenge, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 hover:border-blue-400"
-            >
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{challenge.title}</h3>
-              <p className="text-sm font-semibold text-blue-600 mb-4">{challenge.date}</p>
-              <p className="text-gray-600 text-sm leading-relaxed">{challenge.description}</p>
-            </div>
+            <AnimatedSection key={index} delay={index * 90}>
+              <div className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 h-full flex flex-col">
+                {/* Icon + type badge */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center">
+                    <Trophy className="h-5 w-5 text-indigo-500" />
+                  </div>
+                  {challenge.type && (
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border capitalize ${typeColor[challenge.type] ?? 'bg-gray-50 text-gray-600 border-gray-200'}`}>
+                      {challenge.type}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1">
+                  {challenge.title}
+                </h3>
+
+                <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-3">
+                  <Calendar className="h-3.5 w-3.5 flex-shrink-0" />
+                  {challenge.date}
+                </div>
+
+                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                  {challenge.description}
+                </p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <Link 
-            to="/challenges" 
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-          >
-            View All Challenges <ArrowRight className="h-5 w-5" />
-          </Link>
-        </div>
+
+        {/* CTA */}
+        <AnimatedSection delay={300}>
+          <div className="text-center">
+            <Link
+              to="/challenges"
+              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-colors duration-200"
+            >
+              View All Challenges <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </AnimatedSection>
+
       </div>
     </section>
   );
