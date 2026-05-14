@@ -2,84 +2,160 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/images/icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a508c" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- Primary identity -->
+    <title>Taiabur Rahman — ML Engineer · Medical Imaging · Computer Vision</title>
     <meta name="author" content="Taiabur Rahman" />
-    <meta name="keywords" content="Taiabur Rahman, Medical Imaging, Computer Vision, Artificial Intelligence, Machine Learning, Deep Learning, Software Engineer, Data Science, Image Processing, Healthcare AI" />
     <meta
       name="description"
-      content="Taiabur Rahman - Medical Imaging Specialist, Software Engineer, and AI Expert specializing in Computer Vision, Deep Learning, and Healthcare Technology. Explore projects, research, and professional experience."
+      content="Portfolio of Taiabur Rahman — Machine Learning Engineer specialising in Medical Imaging, Computer Vision, LLM / VLM and AI Agents. Open to opportunities in France and remote-worldwide."
     />
-    
-    <!-- Open Graph / Facebook -->
+    <meta
+      name="keywords"
+      content="Taiabur Rahman, Machine Learning Engineer, Medical Imaging, Computer Vision, Deep Learning, LLM, VLM, AI Agents, MCP, RAG, Databricks, GCP, AWS, Python, PyTorch, nnU-Net, INSERM, Erasmus Mundus, MAIA, Paris, France"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="google" content="notranslate" />
+
+    <!-- Icons -->
+    <link rel="icon" href="%PUBLIC_URL%/images/icon.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Canonical (per-page <Seo /> overrides this at runtime) -->
+    <link rel="canonical" href="https://taiaburbd.github.io/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Taiabur Rahman — Portfolio" />
     <meta property="og:url" content="https://taiaburbd.github.io/" />
-    <meta property="og:title" content="Taiabur Rahman - Medical Imaging Specialist & AI Expert" />
-    <meta property="og:description" content="Medical Imaging Specialist, Software Engineer, and AI Expert specializing in Computer Vision, Deep Learning, and Healthcare Technology" />
+    <meta property="og:title" content="Taiabur Rahman — ML Engineer · Medical Imaging · Computer Vision" />
+    <meta
+      property="og:description"
+      content="Portfolio of Taiabur Rahman — Machine Learning Engineer specialising in Medical Imaging, Computer Vision, LLM / VLM and AI Agents."
+    />
     <meta property="og:image" content="https://taiaburbd.github.io/images/icon.png" />
-    <meta property="og:site_name" content="Taiabur Rahman Portfolio" />
-    
+    <meta property="og:locale" content="en_US" />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://taiaburbd.github.io/" />
-    <meta name="twitter:title" content="Taiabur Rahman - Medical Imaging Specialist & AI Expert" />
-    <meta name="twitter:description" content="Medical Imaging Specialist, Software Engineer, and AI Expert specializing in Computer Vision, Deep Learning, and Healthcare Technology" />
+    <meta name="twitter:title" content="Taiabur Rahman — ML Engineer · Medical Imaging · Computer Vision" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Taiabur Rahman — Machine Learning Engineer specialising in Medical Imaging, Computer Vision, LLM / VLM and AI Agents."
+    />
     <meta name="twitter:image" content="https://taiaburbd.github.io/images/icon.png" />
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://taiaburbd.github.io/" />
-    
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/icon.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
-    <title>Taiabur Rahman - Medical Imaging Specialist & AI Expert | Portfolio</title>
-    
+
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="dns-prefetch" href="https://www.linkedin.com" />
+
+    <!-- Structured data: Person + WebSite (overridden / extended per page) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://taiaburbd.github.io/#person",
+            "name": "Taiabur Rahman",
+            "url": "https://taiaburbd.github.io",
+            "email": "mailto:taiaburbd@gmail.com",
+            "jobTitle": "Machine Learning Engineer",
+            "image": "https://taiaburbd.github.io/images/icon.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Paris",
+              "addressCountry": "FR"
+            },
+            "alumniOf": [
+              { "@type": "CollegeOrUniversity", "name": "Université de Bourgogne" },
+              { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Cassino" },
+              { "@type": "CollegeOrUniversity", "name": "Universitat de Girona" },
+              { "@type": "CollegeOrUniversity", "name": "Tianjin University" }
+            ],
+            "knowsAbout": [
+              "Machine Learning",
+              "Medical Imaging",
+              "Computer Vision",
+              "Deep Learning",
+              "Large Language Models",
+              "AI Agents",
+              "MCP",
+              "Databricks",
+              "Software Engineering"
+            ],
+            "sameAs": [
+              "https://github.com/taiaburbd",
+              "https://www.linkedin.com/in/taiabur-rahman/",
+              "https://www.upwork.com/fl/taiaburbd",
+              "https://www.youtube.com/taiaburrahman"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://taiaburbd.github.io/#website",
+            "url": "https://taiaburbd.github.io/",
+            "name": "Taiabur Rahman — Portfolio",
+            "description": "Portfolio of Taiabur Rahman — ML Engineer, Medical Imaging, Computer Vision and AI Agents.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://taiaburbd.github.io/#person" }
+          }
+        ]
+      }
+    </script>
+
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the browser's history
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
-      }(window.location))
+      })(window.location);
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
   </head>
   <body>
     <noscript>
       <div style="padding: 40px; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
-        <h1>Taiabur Rahman - Medical Imaging Specialist & AI Expert</h1>
-        <p>You need to enable JavaScript to run this app.</p>
+        <h1>Taiabur Rahman — Machine Learning Engineer · Medical Imaging · Computer Vision</h1>
+        <p>You need JavaScript to view the full interactive portfolio.</p>
         <h2>About</h2>
-        <p>Medical Imaging Specialist, Software Engineer, and AI Expert with expertise in Computer Vision, Deep Learning, and Healthcare Technology. Specializing in 3D medical image segmentation, machine learning applications, and innovative healthcare solutions.</p>
-        <h2>Skills</h2>
-        <p>Python, TensorFlow, PyTorch, OpenCV, Medical Imaging, Deep Learning, Computer Vision, Machine Learning, Software Engineering, Data Science</p>
+        <p>Machine Learning Engineer with a Master's in Medical Imaging (Erasmus Mundus MAIA) and over four years of full-stack experience in healthcare SaaS. Specialised in Medical Imaging, Computer Vision, LLM / VLM and AI Agents (MCP, RAG).</p>
+        <h2>Key Skills</h2>
+        <p>Python · PyTorch · TensorFlow · nnU-Net · OpenCV · FastAPI · Vue.js · React · Docker · AWS · GCP · Databricks · LangChain · LangGraph · MCP · RAG</p>
+        <h2>CV</h2>
+        <p>
+          <a href="/cv/gen/Rahman_CV_2026_en.html">CV (English)</a> ·
+          <a href="/cv/gen/Rahman_CV_2026_fr.html">CV (Français)</a>
+        </p>
         <h2>Contact</h2>
-        <p>Email: taiaburbd@gmail.com</p>
+        <p>Email: <a href="mailto:taiaburbd@gmail.com">taiaburbd@gmail.com</a> · GitHub: <a href="https://github.com/taiaburbd">github.com/taiaburbd</a> · LinkedIn: <a href="https://www.linkedin.com/in/taiabur-rahman/">linkedin.com/in/taiabur-rahman</a></p>
       </div>
     </noscript>
     <div id="root">
-      <!-- SEO-friendly initial content -->
+      <!-- SEO-friendly initial content, hidden from sighted users -->
       <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
-        <h1>Taiabur Rahman - Medical Imaging Specialist & AI Expert</h1>
-        <p>Welcome to the portfolio of Taiabur Rahman, a Medical Imaging Specialist, Software Engineer, and Artificial Intelligence Expert. Specializing in Computer Vision, Deep Learning, Medical Image Processing, and Healthcare Technology solutions.</p>
-        <h2>Professional Expertise</h2>
-        <p>Experienced in 3D medical image segmentation, automated brain MRI analysis, deep learning model development, and innovative healthcare AI applications. Proficient in Python, TensorFlow, PyTorch, OpenCV, and modern software engineering practices.</p>
-        <h2>Academic Projects and Research</h2>
-        <p>Extensive experience in medical imaging research, including INSERM 3D segmentation projects, traffic simulation systems, and advanced computer vision applications.</p>
-        <h2>Hackathons and Competitions</h2>
-        <p>Active participant in prestigious hackathons including HACKUPC 2024, Datathon IA4care, bitsxlaMarató, and various AI healthcare challenges across Europe.</p>
+        <h1>Taiabur Rahman — Machine Learning Engineer · Medical Imaging · Computer Vision</h1>
+        <p>Portfolio of Taiabur Rahman, ML Engineer specialised in Medical Imaging, Computer Vision, LLM / VLM and AI Agents (MCP, RAG). Erasmus Mundus Master in Medical Imaging & Applications (MAIA), research at INSERM Dijon on 3D brain segmentation. Open to roles in France and remote-worldwide.</p>
+        <h2>Expertise</h2>
+        <p>3D medical image segmentation, deep learning, classical and modern computer vision, LLM fine-tuning, agentic systems with MCP and RAG, end-to-end ML pipelines on AWS, GCP and Databricks.</p>
         <h2>Education</h2>
-        <p>Master's degree in Medical Imaging and Applications with focus on deep learning and computer vision technologies.</p>
+        <p>Erasmus Mundus Joint Master in Medical Imaging & Applications (MAIA) — Université de Bourgogne (France), Università di Cassino (Italy), Universitat de Girona (Spain). MSc Software Engineering — Tianjin University. BSc Computer Science — Bangladesh University.</p>
+        <h2>Hackathons & Challenges</h2>
+        <p>HACKUPC 2024, Datathon IA4Care, bitsxlaMarató and other AI / health-tech events.</p>
       </div>
     </div>
   </body>

@@ -4,10 +4,47 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/ca
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { ArrowLeft, Building2, Target, Lightbulb, TrendingUp, ImageIcon } from 'lucide-react';
+import Seo from '../../components/Seo';
+import JsonLd from '../../components/JsonLd';
+import { ROUTES, SITE, absUrl } from '../../lib/seo';
 
 const InsermProjectPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Seo
+        title={ROUTES.insermProject.title}
+        description={ROUTES.insermProject.description}
+        path={ROUTES.insermProject.path}
+        type="article"
+        keywords={[
+          'INSERM',
+          '3D Brain Segmentation',
+          'nnU-Net',
+          'PyTorch',
+          'Medical Imaging',
+          'Histology',
+          'Deep Learning',
+          'Research',
+        ]}
+      />
+      <JsonLd
+        id="inserm-project"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academic Projects', path: ROUTES.academicProjects.path },
+          { name: 'INSERM 3D Brain Segmentation', path: ROUTES.insermProject.path },
+        ]}
+        extra={{
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: ROUTES.insermProject.title,
+          description: ROUTES.insermProject.description,
+          url: absUrl(ROUTES.insermProject.path),
+          author: { '@id': `${SITE.url}/#person` },
+          keywords:
+            'INSERM, nnU-Net, 3D Brain Segmentation, Medical Imaging, Deep Learning, PyTorch',
+        }}
+      />
       {/* Back Button */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

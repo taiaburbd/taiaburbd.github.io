@@ -4,10 +4,43 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/ca
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { ArrowLeft, Building2, Target, Lightbulb, TrendingUp, ImageIcon, Github, ExternalLink } from 'lucide-react';
+import Seo from '../../components/Seo';
+import JsonLd from '../../components/JsonLd';
+import { ROUTES, SITE, absUrl } from '../../lib/seo';
 
 const TrafficSimulationPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Seo
+        title={ROUTES.trafficSimulation.title}
+        description={ROUTES.trafficSimulation.description}
+        path={ROUTES.trafficSimulation.path}
+        type="article"
+        keywords={[
+          'Traffic Simulation',
+          'Computer Vision',
+          'Software Engineering',
+          'Modelling',
+          'Simulation',
+        ]}
+      />
+      <JsonLd
+        id="traffic-simulation"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academic Projects', path: ROUTES.academicProjects.path },
+          { name: 'Traffic Simulation', path: ROUTES.trafficSimulation.path },
+        ]}
+        extra={{
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: ROUTES.trafficSimulation.title,
+          description: ROUTES.trafficSimulation.description,
+          url: absUrl(ROUTES.trafficSimulation.path),
+          author: { '@id': `${SITE.url}/#person` },
+          keywords: 'Traffic Simulation, Computer Vision, Modelling, Simulation',
+        }}
+      />
       {/* Back Button */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

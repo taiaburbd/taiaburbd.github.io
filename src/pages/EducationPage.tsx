@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, GraduationCap, MapPin, Calendar, Award, ExternalLink, CheckCircle2 } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
+import Seo from '../components/Seo';
+import JsonLd from '../components/JsonLd';
+import { ROUTES } from '../lib/seo';
 
 interface EducationDetail {
   id: string;
@@ -116,6 +119,26 @@ const typeBadge: Record<EducationDetail['type'], { label: string; color: string 
 const EducationPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50/50">
+      <Seo
+        title={ROUTES.education.title}
+        description={ROUTES.education.description}
+        path={ROUTES.education.path}
+        keywords={[
+          'Education',
+          'Erasmus Mundus',
+          'MAIA',
+          'Medical Imaging',
+          'University of Burgundy',
+          'Tianjin University',
+        ]}
+      />
+      <JsonLd
+        id="education"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Education', path: ROUTES.education.path },
+        ]}
+      />
       {/* Top bar */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">

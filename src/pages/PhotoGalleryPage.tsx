@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '../components/ui/card';
 import { ArrowLeft, X } from 'lucide-react';
+import Seo from '../components/Seo';
+import JsonLd from '../components/JsonLd';
+import { ROUTES } from '../lib/seo';
 
 interface Photo {
   id: string;
@@ -59,6 +62,19 @@ const PhotoGalleryPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <Seo
+        title={ROUTES.photoGallery.title}
+        description={ROUTES.photoGallery.description}
+        path={ROUTES.photoGallery.path}
+        keywords={['Photo Gallery', 'Conferences', 'Summer School', 'Hackathon']}
+      />
+      <JsonLd
+        id="photo-gallery"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Photo Gallery', path: ROUTES.photoGallery.path },
+        ]}
+      />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">

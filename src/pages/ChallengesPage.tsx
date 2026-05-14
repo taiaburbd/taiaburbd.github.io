@@ -3,6 +3,9 @@ import { Trophy, Award, Code, Brain, Calendar, MapPin, Users } from 'lucide-reac
 import challengesData from '../data/challenges.json';
 import LazyImage from '../components/LazyImage';
 import AnimatedSection from '../components/AnimatedSection';
+import Seo from '../components/Seo';
+import JsonLd from '../components/JsonLd';
+import { ROUTES } from '../lib/seo';
 
 interface Challenge {
   id: string;
@@ -36,6 +39,19 @@ const typeColor: Record<Challenge['type'], string> = {
 const ChallengesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50/50">
+      <Seo
+        title={ROUTES.challenges.title}
+        description={ROUTES.challenges.description}
+        path={ROUTES.challenges.path}
+        keywords={['Hackathon', 'Datathon', 'HACKUPC', 'IA4Care', 'bitsxlaMarató', 'AI Challenge']}
+      />
+      <JsonLd
+        id="challenges"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Challenges', path: ROUTES.challenges.path },
+        ]}
+      />
       {/* Page header */}
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

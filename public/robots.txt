@@ -1,5 +1,25 @@
 # https://www.robotstxt.org/robotstxt.html
+# Robots policy for taiaburbd.github.io
+
 User-agent: *
 Allow: /
+Disallow: /static/
+Disallow: /*?*
+
+# Allow rich-content crawlers explicit access to media
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /photos/
+Allow: /project-photos/
+Allow: /logos/
+
+User-agent: Bingbot
+Allow: /
+
+# Block known AI scrapers (uncomment if desired)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
 
 Sitemap: https://taiaburbd.github.io/sitemap.xml

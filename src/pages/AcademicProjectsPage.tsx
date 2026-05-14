@@ -4,6 +4,9 @@ import { ExternalLink, Brain, Microscope, Heart, GraduationCap, FileSearch } fro
 import projectsData from '../data/projects.json';
 import LazyImage from '../components/LazyImage';
 import AnimatedSection from '../components/AnimatedSection';
+import Seo from '../components/Seo';
+import JsonLd from '../components/JsonLd';
+import { ROUTES } from '../lib/seo';
 
 interface Project {
   id: string;
@@ -43,6 +46,27 @@ const AcademicProjectsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50/50">
+      <Seo
+        title={ROUTES.academicProjects.title}
+        description={ROUTES.academicProjects.description}
+        path={ROUTES.academicProjects.path}
+        keywords={[
+          'Academic Projects',
+          'Medical Imaging',
+          'Deep Learning',
+          'Computer Vision',
+          'INSERM',
+          'nnU-Net',
+          'PyTorch',
+        ]}
+      />
+      <JsonLd
+        id="academic-projects"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academic Projects', path: ROUTES.academicProjects.path },
+        ]}
+      />
       {/* Page header */}
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

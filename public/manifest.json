@@ -1,6 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Taiabur Rahman — Portfolio",
+  "short_name": "Taiabur Rahman",
+  "description": "Portfolio of Taiabur Rahman — Machine Learning Engineer specialising in Medical Imaging, Computer Vision, LLM / VLM and AI Agents.",
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0a508c",
+  "background_color": "#ffffff",
+  "categories": ["portfolio", "education", "productivity"],
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +20,20 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
