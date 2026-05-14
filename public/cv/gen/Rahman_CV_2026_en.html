@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taiabur Rahman — CV 2026</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.45;
+      color: #1e1e1e;
+      background: #fff;
+    }
+
+    a { color: #0a508c; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Page wrapper ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 12mm 13mm 12mm 13mm;
+      background: #fff;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      color: #1e1e1e;
+      letter-spacing: 0.5px;
+    }
+    .header .subtitle {
+      font-size: 10pt;
+      color: #666;
+      margin: 3px 0 6px;
+    }
+    .header .contact {
+      font-size: 8.5pt;
+      color: #555;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 14px;
+    }
+    .header .contact span { white-space: nowrap; }
+    .header .contact .sep { color: #bcd; }
+
+    /* ── Top rule ── */
+    .top-rule {
+      border: none;
+      border-top: 1.5px solid #0a508c;
+      margin: 7px 0 6px;
+    }
+
+    /* ── Profile bar ── */
+    .profile {
+      font-size: 9pt;
+      color: #333;
+      margin-bottom: 7px;
+      border-left: 3px solid #0a508c;
+      padding-left: 8px;
+      line-height: 1.5;
+    }
+    .profile strong { color: #0a508c; }
+
+    .mid-rule {
+      border: none;
+      border-top: 0.5px solid #bcd;
+      margin: 6px 0;
+    }
+
+    /* ── Two-column layout ── */
+    .columns {
+      display: grid;
+      grid-template-columns: 62% 1fr;
+      gap: 0 14px;
+    }
+
+    /* ── Section headings ── */
+    .section-title {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #0a508c;
+      border-bottom: 0.6px solid #bcd;
+      padding-bottom: 2px;
+      margin: 10px 0 5px;
+    }
+
+    /* ── Job entries ── */
+    .job { margin-bottom: 8px; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .job-title { font-weight: 700; font-size: 9.5pt; }
+    .job-date  { font-size: 8.5pt; color: #0a508c; white-space: nowrap; }
+    .job-org   { font-size: 8.5pt; color: #555; font-style: italic; margin-bottom: 2px; }
+
+    ul.bullets {
+      padding-left: 14px;
+      margin-top: 2px;
+    }
+    ul.bullets li {
+      margin-bottom: 1px;
+      font-size: 9pt;
+    }
+    ul.bullets li::marker { color: #0a508c; }
+
+    /* ── Projects ── */
+    .project { margin-bottom: 5px; font-size: 9pt; }
+    .project-title { font-weight: 700; }
+    .project-sub   { color: #555; font-size: 8.5pt; }
+    .project a     { font-size: 8pt; }
+
+    /* ── Right column ── */
+    .edu-block { margin-bottom: 7px; }
+    .edu-block .deg  { font-weight: 700; font-size: 9pt; }
+    .edu-block .prog { font-style: italic; font-size: 8.5pt; color: #333; }
+    .edu-block .date { font-size: 8pt; color: #0a508c; }
+    .edu-block .inst { font-size: 8.5pt; color: #444; margin-top: 1px; }
+    .edu-block .note { font-size: 7.5pt; color: #666; font-style: italic; margin-top: 2px; }
+
+    /* ── Skills table ── */
+    .skills-table { width: 100%; border-collapse: collapse; margin-top: 2px; }
+    .skills-table td { padding: 1.5px 0; font-size: 8.5pt; vertical-align: top; }
+    .skills-table td:first-child {
+      font-weight: 700;
+      width: 36%;
+      padding-right: 4px;
+      white-space: nowrap;
+    }
+
+    /* ── Languages ── */
+    .lang-row { font-size: 9pt; margin-bottom: 2px; }
+    .lang-row strong { font-weight: 700; }
+
+    /* ── Training ── */
+    .training-block { margin-bottom: 5px; font-size: 8.5pt; }
+    .training-block .t-title { font-weight: 700; }
+    .training-block .t-place { color: #555; }
+    .training-block .t-date  { color: #0a508c; }
+
+    /* ── Target roles ── */
+    ul.target { padding-left: 13px; }
+    ul.target li { font-size: 8.5pt; margin-bottom: 2px; }
+    ul.target li::marker { color: #0a508c; }
+
+    /* ── ATS keywords ── */
+    .ats { font-size: 7.5pt; color: #777; line-height: 1.6; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      font-size: 7.5pt;
+      color: #999;
+      border-top: 0.5px solid #bcd;
+      margin-top: 8px;
+      padding-top: 4px;
+    }
+
+    /* ── Download button ── */
+    .download-btn {
+      position: fixed;
+      top: 18px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: #0a508c;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      text-decoration: none;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .download-btn:hover {
+      background: #083d6e;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+      text-decoration: none;
+      color: #fff;
+    }
+    .download-btn svg { flex-shrink: 0; }
+
+    /* ── Print styles ── */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; padding: 12mm 13mm; margin: 0; box-shadow: none; }
+      .download-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="download-btn" href="Rahman_CV_2026.pdf" download="Taiabur_Rahman_CV_2026.pdf">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Download PDF
+</a>
+
+<div class="page">
+
+  <!-- ══ HEADER ══════════════════════════════════════════════════ -->
+  <div class="header">
+    <h1>Taiabur Rahman</h1>
+    <div class="subtitle">Machine Learning Engineer &nbsp;|&nbsp; Medical Imaging (AI) &nbsp;|&nbsp; Computer Vision &nbsp;|&nbsp; AI Agents</div>
+    <div class="contact">
+      <span>📍 Paris 75019, France</span>
+      <span class="sep">|</span>
+      <span>✉ <a href="mailto:taiaburbd@gmail.com">taiaburbd@gmail.com</a></span>
+      <span class="sep">|</span>
+      <span>📞 +33 07 66 93 69 20</span>
+      <span class="sep">|</span>
+      <span>🐙 <a href="https://github.com/taiaburbd">github.com/taiaburbd</a></span>
+      <span class="sep">|</span>
+      <span>🔗 <a href="https://www.linkedin.com/in/taiabur-rahman">linkedin.com</a></span>
+ 
+    </div>
+  </div>
+
+  <hr class="top-rule">
+
+  <!-- ══ PROFILE ═════════════════════════════════════════════════ -->
+  <div class="profile">
+    <strong>Profile — </strong>
+    ML Engineer with <strong>1+ year</strong> in production AI/ML and <strong>4+ years</strong> fullstack experience in healthcare SaaS.
+    <strong>Erasmus Mundus Master</strong> in Medical Imaging (MAIA); research at <strong>INSERM Dijon</strong> on 3D brain segmentation.
+    End-to-end ML pipelines (PyTorch, TensorFlow), <strong>Computer Vision</strong>, <strong>LLM / VLM</strong>, <strong>AI Agents</strong> (MCP, RAG)
+    and cloud deployment (FastAPI, Docker, AWS / GCP, Databricks).
+    Open to ML / CV / AI Agent roles in <strong>France</strong> &amp; <strong>remote-worldwide</strong>.
+  </div>
+
+  <hr class="mid-rule">
+
+  <!-- ══ TWO COLUMNS ═════════════════════════════════════════════ -->
+  <div class="columns">
+
+    <!-- ── LEFT COLUMN ─────────────────────────────────────────── -->
+    <div class="left">
+
+      <!-- Experience -->
+      <div class="section-title">Professional Experience</div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Machine Learning Engineer</span>
+          <span class="job-date">Sept. 2025 – Present</span>
+        </div>
+        <div class="job-org">BLACKBIRD.AI — New York, USA (Remote)</div>
+        <ul class="bullets">
+          <li>Model Training &amp; LLM Fine-tuning </li>
+          <li>Data preparation &amp; large-scale data analysis</li>
+          <li>Model Deployment &amp; Monitoring</li>
+          <li>Collaborating across engineering and research teams on model deployment</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Graduate Research Intern — Deep Learning &amp; Neuroscience</span>
+          <span class="job-date">Feb. 2024 – Aug. 2024</span>
+        </div>
+        <div class="job-org">INSERM UMR 1231, NEUROGEMM — Dijon, France</div>
+        <ul class="bullets">
+          <li>Built an automated <strong>nnU-Net</strong> segmentation pipeline for high-resolution 3D histological mouse brain volumes (Python, PyTorch)</li>
+          <li>Preprocessed and managed large-scale 3D imaging datasets on GPU cluster</li>
+          <li>Contributed to scientific documentation and internal research presentations</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Full-Stack Developer (Full-time)</span>
+          <span class="job-date">Dec. 2017 – Aug. 2022</span>
+        </div>
+        <div class="job-org">Vision Eye Hospital — Dhaka, Bangladesh</div>
+        <ul class="bullets">
+          <li>Designed development and maintained a hospital ERP / HIMS solution</li>
+          <li>Built modules for prescriptions, diagnostics, surgical workflows</li>
+          <li>Managed DevOps with Nginx/Apache on Linux</li>
+        </ul>
+      </div>
+
+      <!-- Research Projects -->
+      <div class="section-title">Research Projects</div>
+
+      <div class="project">
+        <span class="project-title">3D Mouse Brain Segmentation</span>
+        <span class="project-sub"> — nnU-Net, PyTorch</span>
+        <a href="https://github.com/taiaburbd">[github]</a><br>
+        Automated pipeline for high-res histological 3D brain data.
+      </div>
+
+      <div class="project">
+        <span class="project-title">CT Image Registration — Elastix + SimpleITK</span>
+        <a href="https://github.com/taiaburbd">[github]</a><br>
+        Rigid and affine registration framework for multi-modal medical images.
+      </div>
+
+      <div class="project">
+        <span class="project-title">3D Brain Tissue Segmentation (MRI)</span>
+        <span class="project-sub"> — TensorFlow, PyTorch, U-Net</span>
+        <a href="https://github.com/taiaburbd">[github]</a><br>
+        WM / GM / CSF tissue delineation from volumetric MRI scans.
+      </div>
+
+      <div class="project">
+        <span class="project-title">Skin Lesion Classification</span>
+        <span class="project-sub"> — VGG16, ResNet50, Keras</span>
+        <a href="https://github.com/taiaburbd">[github]</a><br>
+        Transfer learning on dermoscopic images with cross-validation fine-tuning.
+      </div>
+
+      <div class="project">
+        <span class="project-title">Retinal Image Analysis (2D)</span>
+        <span class="project-sub"> — Classical CV pipeline</span>
+        <a href="https://github.com/taiaburbd">[github]</a><br>
+        Thresholding + morphological operations for hard exudate segmentation.
+      </div>
+
+
+      <!-- Education -->
+      <div class="section-title">Education</div>
+
+      <div class="edu-block">
+        <div class="deg">Erasmus Mundus Joint Master</div>
+        <div class="prog">Medical Imaging &amp; Applications (MAIA)</div>
+        <div class="date">Sept. 2022 – Aug. 2024</div>
+        <div class="inst">
+          Université de Bourgogne — Dijon, <strong>France</strong><br>
+          Università degli Studi di Cassino — Italy<br>
+          Universitat de Girona — Spain
+        </div>
+        <div class="note">Medical image segmentation &amp; registration, deep learning, computer-aided diagnosis, surgical robotics, e-health.</div>
+      </div>
+
+      <div class="edu-block">
+        <div class="deg">MSc — Software Engineering</div>
+        <div class="inst">Tianjin University, China</div>
+      </div>
+
+      <div class="edu-block">
+        <div class="deg">BSc — Computer Science &amp; Engineering</div>
+        <div class="inst">Bangladesh University, Bangladesh</div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- ── RIGHT COLUMN ────────────────────────────────────────── -->
+    <div class="right">
+
+
+      <!-- Technical Skills -->
+      <div class="section-title">Technical Skills</div>
+      <table class="skills-table">
+        <tr><td>ML / DL</td><td>PyTorch, TensorFlow, Keras, Scikit-learn, nnU-Net</td></tr>
+        <tr><td>Computer Vision</td><td>Segmentation, Registration, Classification, 3D Volume Analysis, OpenCV</td></tr>
+        <tr><td>AI Agents</td><td>LangChain, LangGraph, MCP, RAG, Tool Use, OpenAI / Gemini APIs</td></tr>
+        <tr><td>Medical Img.</td><td>Segmentation, Registration, CAD, 3D volume analysis</td></tr>
+        
+        <tr><td>Cloud / Data</td><td>AWS (EC2, S3), GCP, Databricks</td></tr>
+        <tr><td>DevOps</td><td>Docker, CI/CD, Linux, Nginx</td></tr>
+        <tr><td>Tools</td><td>Git, REST API, Jupyter</td></tr>
+      </table>
+
+      <!-- Languages -->
+      <div class="section-title">Languages</div>
+      <div class="lang-row"><strong>Bengali</strong> — Native</div>
+      <div class="lang-row"><strong>English</strong> — Upper-intermediate (B2)</div>
+      <div class="lang-row"><strong>French</strong> — Beginner (A1–A2, actively learning)</div>
+
+      <!-- Training -->
+      <div class="section-title">Training &amp; Schools</div>
+
+      <div class="training-block">
+        <div class="t-title">17th EXCITE Summer School</div>
+        <div class="t-place">Biomedical Imaging<br>ETH Zurich &amp; Univ. of Zurich, Switzerland</div>
+        <div class="t-date">Sept. 2023</div>
+      </div>
+
+      <div class="training-block">
+        <div class="t-title">Winter School 2023</div>
+        <div class="t-place">Università di Cassino, Italy</div>
+        <div class="t-date">Feb. 2023</div>
+      </div>
+
+      <!-- Target Roles -->
+      <div class="section-title">Target Roles</div>
+      <ul class="target">
+        <li>ML / AI Engineer — Medical Imaging, Health-Tech</li>
+        <li>Computer Vision / R&amp;D Engineer</li>
+        <li>AI Agent / LLM Engineer (MCP, Agents, RAG)</li>
+        <li>Fullstack Engineer (Python / Vue / React)</li>
+        <li>MLOps Engineer (Docker, AWS, GCP, Databricks, CI/CD)</li>
+      </ul>
+
+      <!-- ATS Keywords -->
+      <div class="section-title">ATS Keywords</div>
+      <div class="ats">
+        Medical Imaging · 3D Segmentation · Deep Learning · Computer Vision · PyTorch · nnU-Net ·
+        SimpleITK · OpenCV · Python · FastAPI · Vue.js · React · Docker · AWS · GCP · Databricks ·
+        LLM · VLM · GPT-4 · Claude · Gemini · CLIP · LLaVA · Fine-tuning · Prompt Engineering ·
+        MCP · AI Agents · LangChain · LangGraph · RAG · CI/CD · MLOps · REST API · SaaS · INSERM · Erasmus Mundus
+      </div>
+
+    </div><!-- /right -->
+  </div><!-- /columns -->
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+  <div class="footer">
+    Based in Paris, France — Open to on-site / hybrid roles in France &amp; remote roles worldwide
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

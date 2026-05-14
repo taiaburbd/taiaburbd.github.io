@@ -1,0 +1,266 @@
+% ============================================================
+% Taiabur Rahman — CV 2026
+% Tailored for the French job market (international tech/AI sector)
+% Compile with: pdflatex Rahman_CV_2026.tex
+% ============================================================
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[top=1.4cm, bottom=1.4cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{paracol}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{dashrule}
+
+% ---- Colours -----------------------------------------------
+\definecolor{accent}{RGB}{10, 80, 140}       % Deep professional blue
+\definecolor{accentlight}{RGB}{220, 235, 248}
+\definecolor{darktext}{RGB}{30, 30, 30}
+\definecolor{graytext}{RGB}{100, 100, 100}
+\definecolor{rulecol}{RGB}{180, 200, 220}
+
+% ---- Page style --------------------------------------------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---- Section headings --------------------------------------
+\titleformat{\section}
+  {\color{accent}\normalfont\normalsize\bfseries\uppercase}
+  {}{0em}{}
+  [\vspace{1pt}\color{rulecol}\hrule height 0.6pt\vspace{2pt}]
+\titlespacing{\section}{0pt}{7pt}{3pt}
+
+% ---- List style --------------------------------------------
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=0pt,
+  topsep=1pt,
+  parsep=0pt,
+  label=\textcolor{accent}{\textbullet}
+}
+
+% ---- Helpers -----------------------------------------------
+\newcommand{\jobtitle}[3]{%
+  \textbf{#1} \hfill \textcolor{accent}{\small #3}\\
+  \textit{\small\color{graytext}#2}%
+}
+\newcommand{\skill}[2]{\textbf{#1} & \small #2 \\[2pt]}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ---- HEADER ------------------------------------------------
+\begin{center}
+  {\fontsize{22pt}{26pt}\selectfont\bfseries\color{darktext} Taiabur Rahman}\\[4pt]
+  {\normalsize\color{graytext}
+    Machine Learning Engineer \ \textcolor{rulecol}{|} \ Medical Imaging (AI) \ \textcolor{rulecol}{|} \ Fullstack Developer}\\[6pt]
+  \small\color{graytext}
+  \faMapMarker*\enspace Paris 75019, France
+  \enspace\textcolor{rulecol}{\textbar}\enspace
+  \faEnvelope\enspace \href{mailto:taiaburbd@gmail.com}{taiaburbd@gmail.com}
+  \enspace\textcolor{rulecol}{\textbar}\enspace
+  \faPhone\enspace +33\,07\,66\,93\,69\,20
+  \\[3pt]
+  \faGithub\enspace \href{https://github.com/taiaburbd}{github.com/taiaburbd}
+  \enspace\textcolor{rulecol}{\textbar}\enspace
+  \faLinkedin\enspace \href{https://www.linkedin.com/in/taiabur-rahman}{linkedin.com/in/taiabur-rahman}
+  \enspace\textcolor{rulecol}{\textbar}\enspace
+  \faGlobe\enspace \href{https://taiaburbd.github.io}{taiaburbd.github.io}
+  \enspace\textcolor{rulecol}{\textbar}\enspace
+  \faDesktop\enspace \href{https://ai-miqa.com}{ai-miqa.com}
+\end{center}
+
+\vspace{3pt}
+{\color{accent}\hrule height 1.2pt}
+\vspace{6pt}
+
+% ---- PROFILE SUMMARY (full width) --------------------------
+\textbf{\color{accent}Profile — }%
+ML Engineer and Medical Imaging specialist with \textbf{4+ years} of fullstack
+experience in healthcare SaaS and an \textbf{Erasmus Mundus Master} in Medical Imaging
+and Applications (France–Italy–Spain). Research background at \textbf{INSERM Dijon}
+in deep learning–based 3D brain segmentation. Proficient in end-to-end pipelines:
+data preprocessing, model training (PyTorch, TensorFlow), REST API deployment
+(FastAPI, Docker, AWS) and frontend integration (Vue.js, React).
+Eager to contribute to R\&D or product teams in French medical-tech or AI sectors.
+
+\vspace{5pt}
+{\color{rulecol}\hrule height 0.5pt}
+\vspace{4pt}
+
+% ---- TWO-COLUMN LAYOUT -------------------------------------
+\columnratio{0.62}
+\setlength{\columnsep}{14pt}
+\begin{paracol}{2}
+
+% ============================================================
+% LEFT COLUMN
+% ============================================================
+
+\section{Professional Experience}
+
+\jobtitle{Machine Learning Engineer}{BLACKBIRD.AI — New York, USA (Remote)}{Sept. 2025 – Present}
+\begin{itemize}
+  \item Developing and improving machine learning models for large-scale data analysis
+  \item Contributing to AI system architecture, data pipelines and performance monitoring
+  \item Collaborating across engineering and research teams in an agile environment
+\end{itemize}
+
+\vspace{4pt}
+\jobtitle{Graduate Research Intern — Deep Learning \& Neuroscience}{INSERM UMR 1231, NEUROGEMM — Dijon, France}{Feb. 2024 – Aug. 2024}
+\begin{itemize}
+  \item Built an automated \textbf{nnU-Net} segmentation pipeline for high-resolution 3D
+        histological mouse brain volumes (Python, PyTorch)
+  \item Preprocessed and managed large-scale 3D imaging datasets
+  \item Tuned and evaluated model performance; collaborated with neuroscientists to
+        validate biological accuracy
+  \item Contributed to scientific documentation and internal presentations
+\end{itemize}
+
+\vspace{4pt}
+\jobtitle{Full-Stack Developer (Full-time)}{Vision Eye Hospital — Dhaka, Bangladesh}{Dec. 2017 – Aug. 2022}
+\begin{itemize}
+  \item Designed and maintained a hospital ERP / HIMS solution deployed across \textbf{5 hospitals}
+  \item Built modules for prescriptions, diagnostics, surgical workflows and patient records
+  \item Stack: \textbf{Laravel}, \textbf{Vue.js}, \textbf{MySQL}; managed DevOps with Nginx/Apache on Linux
+\end{itemize}
+
+% ----
+\section{Research Projects}
+
+\textbf{3D Mouse Brain Segmentation} (nnU-Net, PyTorch)\newline
+Automated pipeline for high-res histological 3D brain data; trained on GPU cluster. \href{https://github.com/taiaburbd}{\small[github]}
+
+\vspace{3pt}
+\textbf{CT Image Registration — Elastix + SimpleITK}\newline
+Rigid and affine registration framework for multi-modal medical images. \href{https://github.com/taiaburbd}{\small[github]}
+
+\vspace{3pt}
+\textbf{3D Brain Tissue Segmentation (MRI)}\newline
+U-Net architectures (TF + PyTorch) for WM / GM / CSF tissue delineation. \href{https://github.com/taiaburbd}{\small[github]}
+
+\vspace{3pt}
+\textbf{Skin Lesion Classification}\newline
+Transfer learning with VGG16 \& ResNet50 on dermoscopic images; cross-validated. \href{https://github.com/taiaburbd}{\small[github]}
+
+\vspace{3pt}
+\textbf{Alzheimer's Classification — Multi-modal}\newline
+Fused MRI features + gene expression data; SVM \& ensemble methods. \href{https://github.com/taiaburbd}{\small[github]}
+
+\vspace{3pt}
+\textbf{Retinal Image Analysis (2D)}\newline
+Classical CV pipeline (thresholding, morphology) for hard exudate segmentation. \href{https://github.com/taiaburbd}{\small[github]}
+
+% ----
+\section{Software Products}
+
+\textbf{AI-MIQA — Medical Image Quality Control Platform}\newline
+\href{https://ai-miqa.com}{\texttt{ai-miqa.com}} — AI-powered platform for automated quality control and analysis
+of medical images; enhances diagnostic accuracy for research and clinical use.
+
+\vspace{3pt}
+\textbf{Hospital Information Management System (HIMS)}\newline
+Web-based ERP for healthcare; active in 5 hospitals (Bangladesh).
+Stack: Laravel, Vue.js, MySQL.
+
+% ============================================================
+\switchcolumn
+% ============================================================
+
+% ---- RIGHT COLUMN ------------------------------------------
+
+\section{Education}
+
+\textbf{Erasmus Mundus Joint Master}\\
+\textit{Medical Imaging \& Applications (MAIA)}\\
+\textcolor{accent}{\small Sept. 2022 – Aug. 2024}\\[1pt]
+{\small
+Université de Bourgogne — Dijon, \textbf{France}\\
+Università degli Studi di Cassino — Italy\\
+Universitat de Girona — Spain\\[2pt]
+\textit{Medical image segmentation \& registration,
+deep learning, computer-aided diagnosis, surgical robotics, e-health.}
+}
+
+\vspace{5pt}
+\textbf{MSc — Software Engineering}\\
+{\small Tianjin University, China}
+
+\vspace{4pt}
+\textbf{BSc — Computer Science \& Engineering}\\
+{\small Bangladesh University, Bangladesh}
+
+% ----
+\section{Technical Skills}
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\skill{ML / DL}{PyTorch, TensorFlow, Keras, Scikit-learn, nnU-Net, SimpleITK}
+\skill{AI / LLM}{OpenAI API, Gemini API, LangChain (basics)}
+\skill{Medical Img.}{Segmentation, Registration, CAD, 3D volume analysis}
+\skill{Backend}{Python (FastAPI, Flask, Django), PHP (Laravel)}
+\skill{Frontend}{Vue.js, React, TypeScript, JavaScript, jQuery}
+\skill{DevOps / Cloud}{AWS (EC2, S3), Docker, CI/CD, Linux, Nginx}
+\skill{Databases}{PostgreSQL, MySQL, SQLite}
+\skill{Tools}{Git, REST API, Jupyter, Apache}
+\end{tabularx}
+
+% ----
+\section{Languages}
+
+\textbf{Bengali} — Native\\[1pt]
+\textbf{English} — Upper-intermediate (\textbf{B2})\\[1pt]
+\textbf{French} — Beginner (\textbf{A1–A2}, actively learning)
+
+% ----
+\section{Training \& Schools}
+
+\textbf{17\textsuperscript{th} EXCITE Summer School}\\
+\textit{Biomedical Imaging}\\
+{\small ETH Zurich \& Univ. of Zurich, Switzerland \hfill \textcolor{accent}{Sept. 2023}}
+
+\vspace{4pt}
+\textbf{Winter School 2023}\\
+{\small Università di Cassino, Italy \hfill \textcolor{accent}{Feb. 2023}}
+
+% ----
+\section{Target Roles (France)}
+
+\begin{itemize}
+  \item ML / AI Engineer — Medical Imaging, Health-Tech
+  \item Fullstack Software Engineer (Python / Vue / React)
+  \item R\&D Engineer — Computer Vision, Image Analysis
+  \item DevOps / MLOps (Docker, AWS, CI/CD)
+\end{itemize}
+
+% ----
+\section{ATS Keywords}
+
+\vspace{1pt}
+{\scriptsize\color{graytext}
+Medical Imaging $\cdot$ 3D Segmentation $\cdot$ Deep Learning $\cdot$ PyTorch $\cdot$ nnU-Net $\cdot$ SimpleITK $\cdot$ Computer Vision $\cdot$ Python $\cdot$ FastAPI $\cdot$ Vue.js $\cdot$ React $\cdot$ Docker $\cdot$ AWS $\cdot$ CI/CD $\cdot$ REST API $\cdot$ SaaS $\cdot$ INSERM $\cdot$ Erasmus Mundus $\cdot$ MLOps
+}
+
+\end{paracol}
+
+% ---- FOOTER ------------------------------------------------
+\vspace{6pt}
+{\color{rulecol}\hrule height 0.5pt}
+\vspace{3pt}
+\begin{center}
+  \scriptsize\color{graytext}
+  Paris, France — Open to on-site, hybrid or remote opportunities in France and Europe
+\end{center}
+
+\end{document}
