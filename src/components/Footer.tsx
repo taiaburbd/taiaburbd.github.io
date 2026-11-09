@@ -1,96 +1,80 @@
 import React from 'react';
-import { Github, Linkedin, Youtube, Facebook, Mail } from 'lucide-react';
+import { Github, Linkedin, Youtube, Mail } from 'lucide-react';
+import { CV_FILES } from '../data/cv';
 
 const socialLinks = [
-  { href: 'https://facebook.com/taiaburbd', Icon: Facebook, label: 'Facebook', color: 'hover:text-blue-500' },
-  { href: 'https://github.com/taiaburbd', Icon: Github, label: 'GitHub', color: 'hover:text-gray-200' },
-  { href: 'https://www.linkedin.com/in/taiabur-rahman/', Icon: Linkedin, label: 'LinkedIn', color: 'hover:text-blue-400' },
-  { href: 'https://www.youtube.com/taiaburrahman', Icon: Youtube, label: 'YouTube', color: 'hover:text-red-400' },
-];
-
-const quickLinks = [
-  { href: 'mailto:taiaburbd@gmail.com', label: 'Email Me' },
-  { href: '/cv/Taiabur_Rahman_CV_2026.pdf', label: 'Download CV', external: true },
-  { href: 'https://www.upwork.com/fl/taiaburbd', label: 'Hire on Upwork', external: true },
+  { href: 'https://github.com/taiaburbd', Icon: Github, label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/taiabur-rahman/', Icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://www.youtube.com/taiaburrahman', Icon: Youtube, label: 'YouTube' },
 ];
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-5xl mx-auto px-4 pt-12 pb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-
-          {/* Brand + visitor tracker */}
+    <footer className="bg-slate-950 text-white">
+      <div className="page-wrap pt-8 pb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
           <div>
-            <p className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-blue-400 bg-clip-text text-transparent mb-2">
-              Taiabur Rahman
+            <p className="text-sm font-extrabold text-white mb-1">Taiabur Rahman</p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Freelance ML Engineer · Computer Vision · Medical Imaging · LLM &amp; AI Agents
             </p>
-            <p className="text-xs text-gray-400 mb-4 leading-relaxed">
-              Medical Imaging · Computer Vision · AI
-            </p>
-            <div className="bg-white rounded-lg p-2 inline-block">
-              <a href="https://clustrmaps.com/site/1c0t0" title="Visit tracker">
-                <img
-                  src="//www.clustrmaps.com/map_v2.png?d=1FdDCe9Mp7tl9ELfel-yvD1xuuvnDkAqgwmRv4TFV0M&cl=ffffff"
-                  alt="Visitor Map"
-                  className="max-w-full h-auto max-h-20"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
+          </div>
+
+          <div>
+            <p className="text-[11px] font-semibold text-slate-300 mb-2.5 uppercase tracking-wider">CV</p>
+            <div className="flex flex-col gap-1.5">
+              {CV_FILES.map(({ href, label, hint }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-slate-400 hover:text-indigo-400 transition-colors"
+                >
+                  {label}
+                  <span className="ml-1.5 text-[10px] uppercase tracking-wider text-slate-600">{hint}</span>
+                </a>
+              ))}
+              <a
+                href="https://www.upwork.com/fl/taiaburbd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-slate-400 hover:text-indigo-400 transition-colors"
+              >
+                Hire on Upwork
               </a>
             </div>
           </div>
 
-          {/* Quick links */}
           <div>
-            <p className="text-sm font-semibold text-gray-200 mb-4 uppercase tracking-wider">Quick Links</p>
-            <div className="flex flex-col gap-2.5">
-              {quickLinks.map(({ href, label, external }) => (
-                <a
-                  key={label}
-                  href={href}
-                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="text-sm text-gray-400 hover:text-indigo-400 transition-colors"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Social links */}
-          <div>
-            <p className="text-sm font-semibold text-gray-200 mb-4 uppercase tracking-wider">Connect</p>
-            <div className="flex gap-3">
-              {socialLinks.map(({ href, Icon, label, color }) => (
+            <p className="text-[11px] font-semibold text-slate-300 mb-2.5 uppercase tracking-wider">Connect</p>
+            <div className="flex gap-2">
+              {socialLinks.map(({ href, Icon, label }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`w-9 h-9 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 ${color} transition-colors`}
+                  className="w-8 h-8 rounded-md bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
-            <div className="mt-4">
-              <a
-                href="mailto:taiaburbd@gmail.com"
-                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-indigo-400 transition-colors"
-              >
-                <Mail className="h-3.5 w-3.5" />
-                taiaburbd@gmail.com
-              </a>
-            </div>
+            <a
+              href="mailto:taiaburbd@gmail.com"
+              className="inline-flex items-center gap-1.5 mt-3 text-xs text-slate-400 hover:text-indigo-400 transition-colors"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              taiaburbd@gmail.com
+            </a>
           </div>
-
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-gray-500">© 2024 Taiabur Rahman. All rights reserved.</p>
-          <p className="text-xs text-gray-600">Built with React · TypeScript · Tailwind CSS</p>
+        <div className="border-t border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-1.5">
+          <p className="text-[11px] text-slate-500">© 2026 Taiabur Rahman</p>
+          <p className="text-[11px] text-slate-600">Paris · React · TypeScript · Tailwind</p>
         </div>
       </div>
     </footer>

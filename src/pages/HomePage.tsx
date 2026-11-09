@@ -1,8 +1,10 @@
 import React from 'react';
 import Header from '../components/Header';
 import About from '../components/About';
-import Education from '../components/Education';
+import Experience from '../components/Experience';
 import Projects from '../components/Projects';
+import Publications from '../components/Publications';
+import Education from '../components/Education';
 import Challenges from '../components/Challenges';
 import Contact from '../components/Contact';
 import Seo from '../components/Seo';
@@ -24,8 +26,7 @@ const HomePage: React.FC = () => {
           'Computer Vision',
           'LLM',
           'AI Agents',
-          'MCP',
-          'Databricks',
+          'Freelance',
           'Paris',
           'France',
         ]}
@@ -33,8 +34,10 @@ const HomePage: React.FC = () => {
       <JsonLd id="home" extra={[personSchema(), websiteSchema()]} />
       <Header />
       <About />
-      <Education />
+      <Experience />
       <Projects />
+      <Publications />
+      <Education />
       <Challenges />
       <Contact />
     </>

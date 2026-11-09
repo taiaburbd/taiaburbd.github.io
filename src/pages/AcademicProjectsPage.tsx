@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Brain, Microscope, Heart, GraduationCap, FileSearch } from 'lucide-react';
+import { ExternalLink, Brain, Microscope, Heart, GraduationCap, FileSearch, Github } from 'lucide-react';
 import projectsData from '../data/projects.json';
 import LazyImage from '../components/LazyImage';
 import AnimatedSection from '../components/AnimatedSection';
@@ -16,6 +16,7 @@ interface Project {
   image: string;
   hoverImage: string;
   link?: string;
+  github?: string;
   category: string;
   icon: string;
 }
@@ -68,19 +69,18 @@ const AcademicProjectsPage: React.FC = () => {
         ]}
       />
       {/* Page header */}
-      <header className="bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <header className="bg-white border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
           <AnimatedSection>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Academic Projects</h1>
-            <div className="w-10 h-1 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 mb-3" />
-            <p className="text-gray-500 text-sm max-w-xl">
+            <h1 className="text-2xl font-bold text-slate-900 mb-1">Academic Projects</h1>
+            <p className="text-slate-500 text-sm max-w-xl">
               Research and academic work in medical imaging, deep learning, and computer vision.
             </p>
           </AnimatedSection>
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
         {/* Filter chips */}
         <AnimatedSection>
           <div className="flex flex-wrap gap-2 mb-2">
@@ -98,28 +98,28 @@ const AcademicProjectsPage: React.FC = () => {
               </button>
             ))}
           </div>
-          <p className="text-xs text-gray-400 mb-8">
+          <p className="text-xs text-slate-400 mb-5">
             {filtered.length} project{filtered.length !== 1 ? 's' : ''}
             {selectedCategory !== 'All' && ` · ${selectedCategory}`}
           </p>
         </AnimatedSection>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {filtered.map((project, i) => (
             <AnimatedSection key={project.id} delay={i * 60}>
               <div
-                className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
+                className="group bg-white rounded-xl border border-slate-200 hover:border-indigo-200 transition-colors overflow-hidden flex flex-col h-full"
                 onMouseEnter={() => setHoveredId(project.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 {/* Image */}
-                <div className="relative h-48 bg-gray-100 overflow-hidden">
+                <div className="relative h-40 bg-slate-100 overflow-hidden">
                   <LazyImage
                     src={hoveredId === project.id ? project.hoverImage : project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    containerClassName="w-full h-48"
+                    containerClassName="w-full h-40"
                   />
                   {/* Category badge overlay */}
                   <div className="absolute top-3 right-3">
@@ -133,11 +133,11 @@ const AcademicProjectsPage: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex flex-col flex-1">
-                  <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wide mb-2">
+                <div className="p-4 flex flex-col flex-1">
+                  <p className="text-[11px] font-semibold text-indigo-600 uppercase tracking-wide mb-1">
                     {project.institution}
                   </p>
-                  <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1">
+                  <h3 className="text-sm font-bold text-slate-900 mb-1.5 leading-snug">
                     {project.link ? (
                       <Link to={project.link} className="hover:text-indigo-600 transition-colors">
                         {project.title}
@@ -146,17 +146,29 @@ const AcademicProjectsPage: React.FC = () => {
                       project.title
                     )}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-500 leading-relaxed mb-3 flex-1">
                     {project.description}
                   </p>
-                  {project.link && (
-                    <Link
-                      to={project.link}
-                      className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 text-sm font-semibold transition-colors"
-                    >
-                      View Details <ExternalLink className="h-3.5 w-3.5" />
-                    </Link>
-                  )}
+                  <div className="flex items-center gap-3">
+                    {project.link && (
+                      <Link
+                        to={project.link}
+                        className="inline-flex items-center gap-1 text-indigo-600 hover:text-indigo-800 text-xs font-semibold"
+                      >
+                        Details <ExternalLink className="h-3 w-3" />
+                      </Link>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-slate-600 hover:text-slate-900 text-xs font-semibold"
+                      >
+                        <Github className="h-3 w-3" /> GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

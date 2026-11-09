@@ -7,10 +7,10 @@ export const SITE = {
   url: 'https://taiaburbd.github.io',
   name: 'Taiabur Rahman — Portfolio',
   shortName: 'Taiabur Rahman',
-  defaultTitle: 'Taiabur Rahman — ML Engineer · Medical Imaging · Computer Vision',
+  defaultTitle: 'Taiabur Rahman — Freelance ML Engineer · Medical Imaging · Computer Vision',
   titleTemplate: '%s · Taiabur Rahman',
   defaultDescription:
-    'Portfolio of Taiabur Rahman — Machine Learning Engineer specialising in Medical Imaging, Computer Vision, LLM / VLM and AI Agents. Open to opportunities in France and remote-worldwide.',
+    'Portfolio of Taiabur Rahman — freelance machine learning engineer in Paris. Computer vision, medical imaging, LLM agents and MLOps. Available immediately, on site or remote.',
   defaultImage: '/images/icon.png',
   twitterHandle: '@taiaburbd',
   locale: 'en_US',
@@ -18,7 +18,7 @@ export const SITE = {
   author: {
     name: 'Taiabur Rahman',
     email: 'taiaburbd@gmail.com',
-    jobTitle: 'Machine Learning Engineer',
+    jobTitle: 'Freelance Machine Learning Engineer',
     sameAs: [
       'https://github.com/taiaburbd',
       'https://www.linkedin.com/in/taiabur-rahman/',
@@ -118,23 +118,13 @@ export type RouteKey = keyof typeof ROUTES;
 /** Static (non-React) HTML pages also indexed in the sitemap. */
 export const STATIC_PAGES = [
   {
-    path: '/cv/gen/Rahman_CV_2026_en.html',
+    path: '/cv/Rahman_CV.pdf',
     priority: 0.9,
     changefreq: 'monthly' as const,
-    hreflang: 'en',
-    alternates: [
-      { hreflang: 'fr', href: '/cv/gen/Rahman_CV_2026_fr.html' },
-      { hreflang: 'x-default', href: '/cv/gen/Rahman_CV_2026_en.html' },
-    ],
   },
   {
-    path: '/cv/gen/Rahman_CV_2026_fr.html',
+    path: '/cv/Rahman_CVa.pdf',
     priority: 0.9,
     changefreq: 'monthly' as const,
-    hreflang: 'fr',
-    alternates: [
-      { hreflang: 'en', href: '/cv/gen/Rahman_CV_2026_en.html' },
-      { hreflang: 'x-default', href: '/cv/gen/Rahman_CV_2026_en.html' },
-    ],
   },
 ] as const;

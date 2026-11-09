@@ -53,22 +53,21 @@ const ChallengesPage: React.FC = () => {
         ]}
       />
       {/* Page header */}
-      <header className="bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <header className="bg-white border-b border-slate-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
           <AnimatedSection>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Challenges &amp; Contests</h1>
-            <div className="w-10 h-1 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 mb-3" />
-            <p className="text-gray-500 text-sm max-w-xl">
-              Hackathons, datathons, classification challenges, and coding contests that sharpen problem-solving skills.
+            <h1 className="text-2xl font-bold text-slate-900 mb-1">Challenges &amp; Contests</h1>
+            <p className="text-slate-500 text-sm max-w-xl">
+              Hackathons, datathons, classification challenges, and coding contests.
             </p>
           </AnimatedSection>
         </div>
       </header>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-4">
         {challenges.map((challenge, index) => (
           <AnimatedSection key={challenge.id} delay={index * 60}>
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+            <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
               <div className="flex flex-col md:flex-row">
                 {/* Logo */}
                 {challenge.logo && (
@@ -82,7 +81,7 @@ const ChallengesPage: React.FC = () => {
                 )}
 
                 {/* Main content */}
-                <div className="flex-1 p-6">
+                <div className="flex-1 p-4">
                   {/* Title + badges */}
                   <div className="flex flex-wrap items-start gap-3 mb-3">
                     <h2 className="text-lg font-bold text-gray-900 flex-1 leading-snug">

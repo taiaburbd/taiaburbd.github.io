@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, Trophy } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import challengesData from '../data/challenges.json';
 import AnimatedSection from './AnimatedSection';
+import SectionHeading from './SectionHeading';
 
 interface Challenge {
   title: string;
@@ -13,75 +14,46 @@ interface Challenge {
 
 const challenges: Challenge[] = challengesData.challenges.slice(0, 3);
 
-const typeColor: Record<string, string> = {
-  hackathon: 'bg-violet-50 text-violet-700 border-violet-200',
-  datathon:  'bg-blue-50 text-blue-700 border-blue-200',
-  challenge: 'bg-amber-50 text-amber-700 border-amber-200',
-  contest:   'bg-rose-50 text-rose-700 border-rose-200',
-};
-
 const Challenges: React.FC = () => {
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-5xl mx-auto px-4">
-
-        {/* Heading */}
+    <section className="section-y bg-white scroll-mt-14">
+      <div className="page-wrap">
         <AnimatedSection>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Challenges &amp; Contests</h2>
-            <div className="section-divider" />
-            <p className="mt-4 text-sm text-gray-500 max-w-xl mx-auto">
-              Hackathons, datathons, classification challenges, and coding contests that sharpen problem-solving skills.
-            </p>
-          </div>
+          <SectionHeading
+            index="06"
+            title="Challenges"
+            subtitle="Hackathons and datathons in health and imaging AI."
+          />
         </AnimatedSection>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-5 mb-10">
+        <div className="grid md:grid-cols-3 gap-3 mb-6">
           {challenges.map((challenge, index) => (
-            <AnimatedSection key={index} delay={index * 90}>
-              <div className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 h-full flex flex-col">
-                {/* Icon + type badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center">
-                    <Trophy className="h-5 w-5 text-indigo-500" />
-                  </div>
-                  {challenge.type && (
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border capitalize ${typeColor[challenge.type] ?? 'bg-gray-50 text-gray-600 border-gray-200'}`}>
-                      {challenge.type}
-                    </span>
-                  )}
+            <AnimatedSection key={index} delay={index * 60}>
+              <div className="bg-white rounded-xl border border-slate-200 p-4 h-full flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+                    {challenge.type}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] text-slate-400">
+                    <Calendar className="h-3 w-3" />
+                    {challenge.date}
+                  </span>
                 </div>
-
-                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1">
-                  {challenge.title}
-                </h3>
-
-                <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-3">
-                  <Calendar className="h-3.5 w-3.5 flex-shrink-0" />
-                  {challenge.date}
-                </div>
-
-                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                  {challenge.description}
-                </p>
+                <h3 className="text-sm font-bold text-slate-900 mb-1.5 leading-snug">{challenge.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">{challenge.description}</p>
               </div>
             </AnimatedSection>
           ))}
         </div>
 
-        {/* CTA */}
-        <AnimatedSection delay={300}>
-          <div className="text-center">
-            <Link
-              to="/challenges"
-              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-colors duration-200"
-            >
-              View All Challenges <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+        <AnimatedSection delay={180}>
+          <Link
+            to="/challenges"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-800"
+          >
+            All challenges <ArrowRight className="h-4 w-4" />
+          </Link>
         </AnimatedSection>
-
       </div>
     </section>
   );

@@ -27,7 +27,7 @@ const educationHistory: EducationDetail[] = [
   {
     id: 'maia',
     title: 'Erasmus Mundus Joint Master Degree in Medical Imaging and Applications (MAIA)',
-    period: 'Sep 2022 – Jun 2024',
+    period: 'Sep 2022 – Aug 2024',
     type: 'master',
     institutions: [
       { name: 'National Institute of Health and Medical Research (INSERM)', location: 'Dijon, France', logo: '/logos/inserm_logo.webp', url: 'https://www.inserm.fr/', degree: 'Master Thesis', credits: '30 ECTS' },
@@ -36,7 +36,7 @@ const educationHistory: EducationDetail[] = [
       { name: 'University of Burgundy (UB)', location: 'Le Creusot/Dijon, France', logo: '/logos/ub-logo.png', url: 'https://u-bourgogne.fr/', degree: 'M.Sc. Computer Vision', credits: '30 ECTS' },
     ],
     description: 'A prestigious two-year international master program spanning four European universities, focusing on medical imaging, computer vision, and AI applications in healthcare.',
-    highlights: ['120 ECTS across 4 European universities', 'Specialised in medical imaging, CV, and AI', 'Master thesis on automated 3D brain segmentation', 'International collaboration across 4 countries'],
+    highlights: ['120 ECTS · global mark 7.41 / 10', 'Specialised in medical imaging, CV, and AI', 'Master thesis on automated 3D brain segmentation (ICPR 2026)', 'International collaboration across France, Italy and Spain'],
   },
   {
     id: 'excite',
@@ -99,7 +99,7 @@ const educationHistory: EducationDetail[] = [
   {
     id: 'bachelor',
     title: 'Bachelor of Science — Computer Science & Engineering',
-    period: '2011 – 2015',
+    period: '2014',
     type: 'bachelor',
     institutions: [
       { name: 'Bangladesh University', location: 'Dhaka, Bangladesh', degree: 'B.Sc. in Computer Science & Engineering' },
@@ -140,11 +140,11 @@ const EducationPage: React.FC = () => {
         ]}
       />
       {/* Top bar */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div className="bg-white border-b border-slate-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-indigo-600 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-indigo-600 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
@@ -152,26 +152,23 @@ const EducationPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Page header */}
-      <header className="bg-white border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <header className="bg-white border-b border-slate-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
           <AnimatedSection>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Education &amp; Training</h1>
-            <div className="w-10 h-1 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 mb-3" />
-            <p className="text-gray-500 text-sm">
-              International academic journey across multiple countries and institutions.
+            <h1 className="text-2xl font-bold text-slate-900 mb-1">Education &amp; Training</h1>
+            <p className="text-slate-500 text-sm">
+              International academic journey across France, Italy, Spain, Switzerland, China and Bangladesh.
             </p>
           </AnimatedSection>
         </div>
       </header>
 
-      {/* Timeline */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
         <div className="relative">
           {/* Vertical line */}
           <div className="hidden md:block absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-200 via-blue-200 to-violet-200" />
 
-          <div className="space-y-8">
+          <div className="space-y-5">
             {educationHistory.map((edu, index) => {
               const badge = typeBadge[edu.type];
               return (

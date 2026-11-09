@@ -32,8 +32,9 @@ const routes = [
   { path: '/projects/traffic-simulation', changefreq: 'yearly',  priority: 0.6 },
 ];
 
-const cvAlternates = [
-  { en: '/cv/gen/Rahman_CV_2026_en.html', fr: '/cv/gen/Rahman_CV_2026_fr.html' },
+const cvFiles = [
+  { path: '/cv/Rahman_CV.pdf' },
+  { path: '/cv/Rahman_CVa.pdf' },
 ];
 
 const today = new Date().toISOString().slice(0, 10);
@@ -52,19 +53,14 @@ const urlBlock = (route) => {
   </url>`;
 };
 
-const cvBlock = (loc, primaryHreflang, { en, fr }) => `  <url>
+const cvBlock = (loc) => `  <url>
     <loc>${abs(loc)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${abs(en)}"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="${abs(fr)}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${abs(en)}"/>
   </url>`;
 
-const cvBlocks = cvAlternates
-  .flatMap((pair) => [cvBlock(pair.en, 'en', pair), cvBlock(pair.fr, 'fr', pair)])
-  .join('\n\n');
+const cvBlocks = cvFiles.map((file) => cvBlock(file.path)).join('\n\n');
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
@@ -74,7 +70,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 
 ${routes.map(urlBlock).join('\n\n')}
 
-  <!-- CV pages with hreflang alternates -->
+  <!-- CV PDFs -->
 ${cvBlocks}
 
 </urlset>
@@ -82,4 +78,4 @@ ${cvBlocks}
 
 const outPath = resolve(ROOT, 'public/sitemap.xml');
 writeFileSync(outPath, xml, 'utf8');
-console.log(`\u2713 Wrote ${outPath} with ${routes.length} routes + ${cvAlternates.length * 2} CV entries.`);
+console.log(`\u2713 Wrote ${outPath} with ${routes.length} routes + ${cvFiles.length} CV entries.`);

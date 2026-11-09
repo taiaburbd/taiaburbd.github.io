@@ -4,12 +4,12 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #111827;
+  color: #0f172a;
+  background: #fff;
 }
 
 code {
@@ -21,15 +21,24 @@ code {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: #c7d2fe;
+  color: #1e1b4b;
+}
+
+@layer components {
+  .page-wrap {
+    @apply max-w-5xl mx-auto px-4 sm:px-5;
+  }
+
+  .section-y {
+    @apply py-10 sm:py-12;
+  }
+}
+
 @layer utilities {
-  /* ── Skeleton / shimmer loader ── */
   .shimmer {
-    background: linear-gradient(
-      90deg,
-      #f3f4f6 0%,
-      #e9eaec 40%,
-      #f3f4f6 80%
-    );
+    background: linear-gradient(90deg, #f3f4f6 0%, #e9eaec 40%, #f3f4f6 80%);
     background-size: 200% 100%;
     animation: shimmerMove 1.4s ease-in-out infinite;
   }
@@ -39,11 +48,10 @@ code {
     100% { background-position: -200% 0; }
   }
 
-  /* ── Scroll-triggered animation helpers ── */
   .animate-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
 
   .animate-on-scroll.in-view {
@@ -51,7 +59,6 @@ code {
     transform: translateY(0);
   }
 
-  /* ── Legacy blob (kept for compatibility) ── */
   .animate-blob {
     animation: blob 8s ease-in-out infinite;
   }
@@ -65,12 +72,10 @@ code {
   .animation-delay-2000 { animation-delay: 2s; }
   .animation-delay-4000 { animation-delay: 4s; }
 
-  /* ── Section divider line ── */
   .section-divider {
-    width: 3rem;
-    height: 3px;
+    width: 2rem;
+    height: 2px;
     border-radius: 9999px;
     background: linear-gradient(90deg, #6366f1, #3b82f6);
-    margin: 0 auto;
   }
 }

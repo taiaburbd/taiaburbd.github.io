@@ -1,6 +1,17 @@
 {
   "projects": [
     {
+      "id": "idc-explorer",
+      "title": "IDC Explorer — AI tools for NCI Imaging Data Commons",
+      "institution": "Open source",
+      "description": "Ask questions in plain language about the NCI Imaging Data Commons (86,451 patients, CT/MRI and AI segmentations). Every answer includes SQL, viewer links and code to reproduce it. MCP server so AI agents can query the data.",
+      "image": "/images/project_human_mri3d.jpg",
+      "hoverImage": "/images/project_human_mri3d_seg.jpg",
+      "github": "https://github.com/taiaburbd/IDC-Explorer",
+      "category": "Medical Imaging",
+      "icon": "Brain"
+    },
+    {
       "id": "inserm-3d-seg",
       "title": "Deep Learning-Driven Automated Segmentation of High-Resolution 3D Histological Mouse Brain Volumes",
       "institution": "The National Institute of Health and Medical Research (INSERM), France",
@@ -28,6 +39,7 @@
       "description": "This research contributes to enhancing medical imaging practices in managing COPD, based on data from the COPDgene study.",
       "image": "/images/project_copd_0.png",
       "hoverImage": "/images/project_copd_1.png",
+      "github": "https://github.com/taiaburbd/chest_ct_registration",
       "category": "Medical Imaging",
       "icon": "Heart"
     },
@@ -38,6 +50,7 @@
       "description": "Developed a brain tissue segmentation project at the University of Girona using advanced deep learning techniques for accurate 3D brain tissue classification.",
       "image": "/images/project_human_mri3d.jpg",
       "hoverImage": "/images/project_human_mri3d.jpg",
+      "github": "https://github.com/taiaburbd/brain_mri_segmentation",
       "category": "Medical Imaging",
       "icon": "Brain"
     },
@@ -89,6 +102,7 @@
       "image": "/images/project_traffic-signal-simulation.png",
       "hoverImage": "/images/project_traffic-signal-simulation.gif",
       "link": "/projects/traffic-simulation",
+      "github": "https://github.com/taiaburbd/traffic-ss",
       "category": "Computer Vision",
       "icon": "Microscope"
     }

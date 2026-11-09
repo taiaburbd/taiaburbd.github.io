@@ -1,156 +1,71 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Mail, FileText, ChevronDown, Github, Linkedin, Youtube, Briefcase } from 'lucide-react';
-import LazyImage from './LazyImage';
+import React from 'react';
+import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
+import CvDropdown from './CvDropdown';
 
 const socialLinks = [
   { href: 'mailto:taiaburbd@gmail.com', Icon: Mail, label: 'Email' },
   { href: 'https://github.com/taiaburbd', Icon: Github, label: 'GitHub', external: true },
   { href: 'https://www.linkedin.com/in/taiabur-rahman/', Icon: Linkedin, label: 'LinkedIn', external: true },
-  { href: 'https://www.upwork.com/fl/taiaburbd', Icon: Briefcase, label: 'Upwork', external: true },
-  { href: 'https://www.youtube.com/taiaburrahman', Icon: Youtube, label: 'YouTube', external: true },
 ];
-
-const cvOptions = [
-  { href: '/cv/gen/Rahman_CV_2026_en.html', label: 'English', code: 'EN' },
-  { href: '/cv/gen/Rahman_CV_2026_fr.html', label: 'Français', code: 'FR' },
-];
-
-const CvDropdown: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleEsc);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEsc);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-700 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 shadow-sm transition-all duration-200"
-      >
-        <FileText className="h-3.5 w-3.5" />
-        CV
-        <ChevronDown
-          className={`h-3 w-3 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
-
-      <div
-        role="menu"
-        className={`absolute left-0 top-full pt-1 z-20 min-w-[150px] transition-all duration-150 ${
-          open
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 -translate-y-1 pointer-events-none'
-        }`}
-      >
-        <div className="rounded-lg border border-gray-200 bg-white shadow-lg overflow-hidden">
-          {cvOptions.map(({ href, label, code }) => (
-            <a
-              key={code}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              role="menuitem"
-              className="flex items-center justify-between gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-            >
-              <span>{label}</span>
-              <span className="text-[10px] font-semibold tracking-wider text-gray-400">
-                {code}
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Header: React.FC = () => {
   return (
-    <header className="relative bg-white overflow-hidden border-b border-gray-100">
-      {/* Subtle gradient + grid overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50/60 pointer-events-none" />
+    <header className="relative bg-slate-950 text-white overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_0%,rgba(99,102,241,0.28),transparent_55%)] pointer-events-none" />
       <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(rgb(99 102 241) 1px, transparent 1px), linear-gradient(to right, rgb(99 102 241) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
+            'linear-gradient(rgb(148 163 184) 1px, transparent 1px), linear-gradient(to right, rgb(148 163 184) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
         }}
       />
 
-      {/* Ambient glow blobs */}
-      <div className="absolute -top-24 -right-24 w-80 h-80 bg-indigo-200/30 rounded-full filter blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-blue-200/20 rounded-full filter blur-3xl pointer-events-none" />
-
-      <div className="relative max-w-5xl mx-auto px-4 py-20 sm:py-28">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 animate-fade-up">
-          {/* Avatar */}
+      <div className="relative page-wrap py-10 sm:py-12">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-7 md:gap-10">
           <div className="flex-shrink-0">
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-400 to-blue-400 blur-lg opacity-40 scale-110" />
-              <LazyImage
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28">
+              <div className="absolute inset-0 rounded-full bg-indigo-400/40 blur-xl scale-110" />
+              <img
                 src="/images/taiabur_apr24.jpg"
                 alt="Taiabur Rahman"
-                className="relative w-full h-full rounded-full object-cover ring-4 ring-white shadow-xl"
-                containerClassName="w-32 h-32 sm:w-40 sm:h-40 rounded-full"
+                className="relative w-full h-full rounded-full object-cover ring-2 ring-white/20"
               />
             </div>
           </div>
 
-          {/* Text */}
-          <div className="text-center md:text-left">
-            {/* Status pill */}
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-3 py-1.5 rounded-full mb-5 tracking-wide">
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-              Open to opportunities
+          <div className="text-center md:text-left flex-1">
+            <div className="inline-flex items-center gap-2 bg-emerald-400/10 text-emerald-300 border border-emerald-400/20 text-[11px] font-semibold px-2.5 py-1 rounded-full mb-3 tracking-wide">
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+              Available immediately · freelance
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-3 tracking-tight">
+            <h1 className="text-3xl sm:text-[2.4rem] font-extrabold tracking-tight leading-none mb-2">
               Taiabur Rahman
             </h1>
 
-            <p className="text-base sm:text-lg text-gray-500 mb-7 font-normal">
-              Medical Imaging &nbsp;·&nbsp; Software Engineer &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; AI
+            <p className="text-sm sm:text-base text-slate-300 mb-2">
+              Freelance ML Engineer · Computer Vision · Medical Imaging · LLM &amp; AI Agents
             </p>
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
-              {socialLinks.map(({ href, Icon, label, external }, idx) => (
-                <React.Fragment key={label}>
-                  <a
-                    href={href}
-                    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-700 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 shadow-sm transition-all duration-200"
-                  >
-                    <Icon className="h-3.5 w-3.5" />
-                    {label}
-                  </a>
-                  {idx === 0 && <CvDropdown />}
-                </React.Fragment>
+            <p className="inline-flex items-center gap-1.5 text-xs text-slate-400 mb-5">
+              <MapPin className="h-3 w-3" />
+              Paris / Île-de-France · on site or remote
+            </p>
+
+            <div className="flex flex-wrap justify-center md:justify-start gap-2">
+              {socialLinks.map(({ href, Icon, label, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-white/15 bg-white/5 text-slate-100 hover:bg-white/15 transition-colors"
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  {label}
+                </a>
               ))}
+              <CvDropdown variant="dark" />
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -10,9 +10,18 @@ import PhotoGalleryPage from './pages/PhotoGalleryPage';
 import InsermProjectPage from './pages/project-details/InsermProjectPage';
 import TrafficSimulationPage from './pages/project-details/TrafficSimulationPage';
 
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (!window.location.hash) window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">

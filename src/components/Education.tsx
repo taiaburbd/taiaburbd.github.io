@@ -2,98 +2,78 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GraduationCap, ArrowRight, MapPin } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import SectionHeading from './SectionHeading';
 
 interface EducationItem {
   title: string;
   period: string;
   institution: string;
   location: string;
-  accent: string;
 }
 
 const educationData: EducationItem[] = [
   {
-    title: 'Erasmus Mundus Joint Master — Medical Imaging & Applications',
-    period: 'Sep 2022 – Jun 2024',
-    institution: '4 European Universities',
-    location: 'Spain · France · Italy · Portugal',
-    accent: 'from-indigo-500 to-blue-500',
+    title: 'Erasmus Mundus Joint Master — Medical Imaging & Applications (MAIA)',
+    period: 'Sep 2022 – Aug 2024',
+    institution: 'Université de Bourgogne · Università di Cassino · Universitat de Girona',
+    location: 'France · Italy · Spain · 7.41 / 10',
   },
   {
     title: 'Master of Science — Software Engineering',
-    period: 'Sep 2018 – Aug 2020',
+    period: '2018 – 2020',
     institution: 'Tianjin University',
     location: 'Tianjin, China',
-    accent: 'from-blue-500 to-cyan-500',
   },
   {
     title: 'Bachelor of Science — Computer Science & Engineering',
-    period: '2011 – 2015',
-    institution: 'Bangladeshi University',
-    location: 'Bangladesh',
-    accent: 'from-violet-500 to-indigo-500',
+    period: '2014',
+    institution: 'Bangladesh University',
+    location: 'Dhaka, Bangladesh',
   },
 ];
 
 const Education: React.FC = () => {
   return (
-    <section id="education" className="bg-white py-20">
-      <div className="max-w-5xl mx-auto px-4">
-
-        {/* Heading */}
+    <section id="education" className="section-y bg-slate-50 scroll-mt-14">
+      <div className="page-wrap">
         <AnimatedSection>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Education</h2>
-            <div className="section-divider" />
-            <p className="mt-4 text-gray-500 text-sm max-w-xl mx-auto">
-              International academic background spanning medical imaging, software engineering, and computer science.
-            </p>
-          </div>
+          <SectionHeading
+            index="05"
+            title="Education"
+            subtitle="MAIA Erasmus Mundus — medical imaging, computer vision and deep learning."
+          />
         </AnimatedSection>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-5 mb-10">
+        <div className="grid md:grid-cols-3 gap-3 mb-6">
           {educationData.map((item, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <div className="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden h-full">
-                {/* Gradient top bar */}
-                <div className={`h-1.5 w-full bg-gradient-to-r ${item.accent}`} />
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.accent} flex items-center justify-center flex-shrink-0`}>
-                      <GraduationCap className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-xs font-semibold text-gray-500 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full">
-                      {item.period}
-                    </span>
+            <AnimatedSection key={index} delay={index * 70}>
+              <div className="bg-white rounded-xl border border-slate-200 p-4 h-full">
+                <div className="flex items-center gap-2 mb-2.5">
+                  <div className="w-7 h-7 rounded-md bg-indigo-600 flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="h-3.5 w-3.5 text-white" />
                   </div>
-                  <h3 className="text-sm font-bold text-gray-800 mb-2 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm font-medium text-indigo-600 mb-1">{item.institution}</p>
-                  <div className="flex items-center gap-1 text-xs text-gray-400">
-                    <MapPin className="h-3 w-3 flex-shrink-0" />
-                    {item.location}
-                  </div>
+                  <span className="text-[11px] font-semibold text-slate-500">{item.period}</span>
+                </div>
+                <h3 className="text-sm font-bold text-slate-800 mb-1.5 leading-snug">{item.title}</h3>
+                <p className="text-xs font-medium text-indigo-600 mb-1">{item.institution}</p>
+                <div className="flex items-center gap-1 text-[11px] text-slate-400">
+                  <MapPin className="h-3 w-3 flex-shrink-0" />
+                  {item.location}
                 </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
 
-        {/* CTA */}
-        <AnimatedSection delay={350}>
-          <div className="text-center">
-            <Link
-              to="/education"
-              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-colors duration-200"
-            >
-              View Complete Education History
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+        <AnimatedSection delay={220}>
+          <Link
+            to="/education"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-800"
+          >
+            Full education history
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </AnimatedSection>
-
       </div>
     </section>
   );

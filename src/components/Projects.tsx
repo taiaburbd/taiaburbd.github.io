@@ -1,97 +1,130 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+  Database,
+  Brain,
+  Scan,
+  Hospital,
+  Store,
+  Boxes,
+  type LucideIcon,
+} from 'lucide-react';
 import projectsData from '../data/projects.json';
-import LazyImage from './LazyImage';
 import AnimatedSection from './AnimatedSection';
+import SectionHeading from './SectionHeading';
 
 interface Project {
   title: string;
   institution: string;
   description: string;
-  image: string;
-  hoverImage: string;
+  icon: LucideIcon;
+  panel: string;
+  ring: string;
+  iconColor: string;
   link?: string;
+  github?: string;
   tech?: string[];
 }
 
-const researchProjects: Project[] = projectsData.projects.slice(0, 3).map((p) => ({
-  title: p.title,
-  institution: p.institution,
-  description: p.description,
-  image: p.image,
-  hoverImage: p.hoverImage,
-  link: p.link,
-}));
+const inserm = projectsData.projects.find((p) => p.id === 'inserm-3d-seg')!;
 
-const professionalProjects: Project[] = [
+const featuredProjects: Project[] = [
   {
-    title: 'Hospital Information Management Systems (HIMS)',
-    institution: 'Professional',
+    title: 'IDC Explorer',
+    institution: 'Open source · 2026',
     description:
-      'HIMS software includes electronic health records, service modules, administrative modules, and financial management.',
-    image: '/images/p_project_hospital_0.PNG',
-    hoverImage: '/images/p_project_hospital_1.PNG',
-    tech: ['PHP', 'Laravel', 'Vue CLI', 'MySQL', 'AWS'],
+      'Ask questions about NCI Imaging Data Commons (86,451 patients, CT/MRI and segmentations) and get viewer links, SQL and reproducible code. MCP server for AI agents.',
+    github: 'https://github.com/taiaburbd/IDC-Explorer',
+    tech: ['Python', 'DuckDB', 'SQL', 'MCP', 'Streamlit'],
+    icon: Database,
+    panel: 'bg-indigo-50',
+    ring: 'ring-indigo-100',
+    iconColor: 'text-indigo-600',
   },
   {
-    title: 'Franchise Store Management System (FSMS)',
-    institution: 'Professional',
-    description:
-      'Comprehensive store management solution with inventory, sales, and franchise management capabilities.',
-    image: '/images/p_project_store_0.PNG',
-    hoverImage: '/images/p_project_store_1.PNG',
-    tech: ['PHP', 'CodeIgniter', 'MySQL', 'Bootstrap', 'jQuery'],
+    title: inserm.title,
+    institution: inserm.institution,
+    description: inserm.description,
+    link: inserm.link,
+    tech: ['PyTorch', 'nnU-Net', 'SimpleITK'],
+    icon: Brain,
+    panel: 'bg-violet-50',
+    ring: 'ring-violet-100',
+    iconColor: 'text-violet-600',
   },
   {
-    title: 'Advanced B2B Ecommerce Platform',
-    institution: 'Professional',
+    title: '3D Brain MRI Segmentation',
+    institution: 'University of Girona · MAIA',
     description:
-      'B2B ecommerce platform with advanced features for business-to-business transactions and management.',
-    image: '/images/p_project_b2b_0.PNG',
-    hoverImage: '/images/p_project_b2b_1.PNG',
-    tech: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'Ajax'],
+      'WM / GM / CSF segmentation from volumetric MRI with a custom 3D U-Net. Above 90% Dice on the test set.',
+    github: 'https://github.com/taiaburbd/brain_mri_segmentation',
+    tech: ['PyTorch', '3D U-Net', 'TensorFlow'],
+    icon: Scan,
+    panel: 'bg-sky-50',
+    ring: 'ring-sky-100',
+    iconColor: 'text-sky-600',
   },
 ];
 
-const techColors: Record<string, string> = {
-  Python: 'bg-blue-50 text-blue-700',
-  PyTorch: 'bg-orange-50 text-orange-700',
-  PHP: 'bg-violet-50 text-violet-700',
-  Laravel: 'bg-rose-50 text-rose-700',
-  MySQL: 'bg-sky-50 text-sky-700',
-  AWS: 'bg-amber-50 text-amber-700',
-};
+const professionalProjects: Project[] = [
+  {
+    title: 'Hospital Information Management System',
+    institution: 'Vision Eye Hospital',
+    description:
+      'Clinical ERP used daily by 50+ staff — patients, prescriptions, diagnostics, theatre and billing.',
+    tech: ['Laravel', 'Vue.js', 'MySQL'],
+    icon: Hospital,
+    panel: 'bg-rose-50',
+    ring: 'ring-rose-100',
+    iconColor: 'text-rose-600',
+  },
+  {
+    title: 'Franchise Store Management System',
+    institution: 'Professional',
+    description: 'Inventory, sales and franchise operations in a single store-management platform.',
+    tech: ['PHP', 'CodeIgniter', 'MySQL'],
+    icon: Store,
+    panel: 'bg-amber-50',
+    ring: 'ring-amber-100',
+    iconColor: 'text-amber-600',
+  },
+  {
+    title: 'B2B Ecommerce Platform',
+    institution: 'Professional',
+    description: 'Business-to-business catalogue, orders and account management.',
+    tech: ['Laravel', 'MySQL', 'Ajax'],
+    icon: Boxes,
+    panel: 'bg-emerald-50',
+    ring: 'ring-emerald-100',
+    iconColor: 'text-emerald-600',
+  },
+];
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  const [hovered, setHovered] = useState(false);
+  const Icon = project.icon;
 
   return (
-    <div className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1">
-      {/* Image */}
-      <div
-        className="relative h-44 overflow-hidden bg-gray-100"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <LazyImage
-          src={hovered ? project.hoverImage : project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          containerClassName="w-full h-44"
-        />
-        {project.institution && project.institution !== 'Professional' && (
-          <div className="absolute top-3 left-3">
-            <span className="bg-white/90 backdrop-blur-sm text-indigo-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
-              {project.institution}
-            </span>
+    <div className="group flex flex-col bg-white rounded-xl border border-slate-200 hover:border-indigo-200 transition-colors overflow-hidden h-full">
+      <div className={`relative h-28 overflow-hidden ${project.panel}`}>
+        <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/60" />
+        <div className="absolute -left-6 -bottom-10 h-24 w-24 rounded-full bg-white/40" />
+        <div className="relative h-full flex items-center justify-center">
+          <div
+            className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ${project.ring}`}
+          >
+            <Icon className={`h-7 w-7 ${project.iconColor}`} strokeWidth={1.75} />
           </div>
-        )}
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col flex-1 p-5">
-        <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">
+      <div className="flex flex-col flex-1 p-4">
+        <p className="text-[11px] font-semibold text-indigo-600 uppercase tracking-wide mb-1">
+          {project.institution}
+        </p>
+        <h3 className="text-sm font-bold text-slate-900 mb-1.5 leading-snug">
           {project.link ? (
             <Link to={project.link} className="hover:text-indigo-600 transition-colors">
               {project.title}
@@ -100,97 +133,82 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             project.title
           )}
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">{project.description}</p>
+        <p className="text-xs text-slate-500 leading-relaxed mb-3 flex-1">{project.description}</p>
 
         {project.tech && (
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1 mb-3">
             {project.tech.slice(0, 5).map((t) => (
-              <span
-                key={t}
-                className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${
-                  techColors[t] ?? 'bg-gray-100 text-gray-600'
-                }`}
-              >
+              <span key={t} className="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-100 text-slate-600">
                 {t}
               </span>
             ))}
           </div>
         )}
 
-        {project.link && (
-          <Link
-            to={project.link}
-            className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 text-sm font-semibold transition-colors"
-          >
-            View Details <ExternalLink className="h-3.5 w-3.5" />
-          </Link>
-        )}
+        <div className="flex items-center gap-3">
+          {project.link && (
+            <Link
+              to={project.link}
+              className="inline-flex items-center gap-1 text-indigo-600 hover:text-indigo-800 text-xs font-semibold"
+            >
+              Details <ExternalLink className="h-3 w-3" />
+            </Link>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-slate-600 hover:text-slate-900 text-xs font-semibold"
+            >
+              <Github className="h-3 w-3" /> GitHub
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-const SectionHeading: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
-  <AnimatedSection>
-    <div className="mb-8">
-      <h3 className="text-xl font-bold text-gray-800">{title}</h3>
-      {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
-      <div className="mt-2 w-8 h-0.5 rounded-full bg-indigo-400" />
-    </div>
-  </AnimatedSection>
-);
-
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="bg-gray-50/60 py-20">
-      <div className="max-w-6xl mx-auto px-4">
-
-        {/* Main heading */}
+    <section id="projects" className="section-y bg-white scroll-mt-14">
+      <div className="page-wrap">
         <AnimatedSection>
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Projects</h2>
-            <div className="section-divider" />
-          </div>
+          <SectionHeading
+            index="03"
+            title="Selected work"
+            subtitle="Medical imaging tools, 3D segmentation, and production software."
+          />
         </AnimatedSection>
 
-        {/* Research Projects */}
-        <SectionHeading
-          title="Research & Academic Projects"
-          subtitle="Medical imaging, deep learning, and computer vision research"
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {researchProjects.map((project, i) => (
-            <AnimatedSection key={i} delay={i * 80}>
+        <div className="grid md:grid-cols-3 gap-3 mb-8">
+          {featuredProjects.map((project, i) => (
+            <AnimatedSection key={project.title} delay={i * 60}>
               <ProjectCard project={project} />
             </AnimatedSection>
           ))}
         </div>
 
-        {/* Professional Projects */}
-        <SectionHeading
-          title="Professional Projects"
-          subtitle="Industry-grade software solutions"
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <AnimatedSection>
+          <h3 className="text-sm font-bold text-slate-800 mb-3">Professional software</h3>
+        </AnimatedSection>
+        <div className="grid md:grid-cols-3 gap-3 mb-6">
           {professionalProjects.map((project, i) => (
-            <AnimatedSection key={i} delay={i * 80}>
+            <AnimatedSection key={project.title} delay={i * 60}>
               <ProjectCard project={project} />
             </AnimatedSection>
           ))}
         </div>
 
-        {/* View all */}
         <AnimatedSection>
-          <div className="text-center">
-            <Link
-              to="/academic-projects"
-              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-colors duration-200"
-            >
-              View All Projects <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <Link
+            to="/academic-projects"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-800"
+          >
+            All academic projects <ArrowRight className="h-4 w-4" />
+          </Link>
         </AnimatedSection>
-
       </div>
     </section>
   );

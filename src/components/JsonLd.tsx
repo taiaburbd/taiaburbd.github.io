@@ -31,7 +31,7 @@ export const personSchema = () => ({
     'Large Language Models',
     'AI Agents',
     'MCP',
-    'Databricks',
+    'MLOps',
     'Software Engineering',
   ],
 });

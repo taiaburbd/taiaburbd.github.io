@@ -61,7 +61,7 @@ const PhotoGalleryPage: React.FC = () => {
     : photos.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 py-7 px-4 sm:px-6 lg:px-8">
       <Seo
         title={ROUTES.photoGallery.title}
         description={ROUTES.photoGallery.description}
@@ -77,33 +77,32 @@ const PhotoGalleryPage: React.FC = () => {
       />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-6">
           <Link 
             to="/" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-4 transition-colors"
+            className="inline-flex items-center text-sm text-slate-500 hover:text-indigo-600 mb-3 transition-colors"
           >
-            <ArrowLeft className="h-5 w-5 mr-2" />
+            <ArrowLeft className="h-4 w-4 mr-1.5" />
             Back to Home
           </Link>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-slate-900 mb-1">
             Photo Gallery
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
-            A collection of memorable moments from hackathons, competitions, and academic events
+          <p className="text-sm text-slate-500 max-w-3xl">
+            Hackathons, competitions, and academic events.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="mb-8 flex flex-wrap gap-2">
+        <div className="mb-5 flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCategory === category
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                  ? 'bg-indigo-600 text-white border-indigo-600'
+                  : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
               }`}
             >
               {category}
@@ -112,29 +111,29 @@ const PhotoGalleryPage: React.FC = () => {
         </div>
 
         {/* Photo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {filteredPhotos.map((photo) => (
             <Card 
               key={photo.id} 
-              className="overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="overflow-hidden cursor-pointer border border-slate-200 hover:border-indigo-200 transition-colors"
               onClick={() => setSelectedPhoto(photo)}
             >
               <div className="aspect-w-16 aspect-h-9 bg-gray-200">
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-48 object-cover"
                   loading="lazy"
                 />
               </div>
-              <CardContent className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <CardContent className="p-3">
+                <h3 className="text-sm font-semibold text-slate-900 mb-1">
                   {photo.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-2">
+                <p className="text-xs text-slate-500 mb-2">
                   {photo.description}
                 </p>
-                <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                <span className="inline-block px-2 py-0.5 text-[11px] font-medium bg-indigo-50 text-indigo-700 rounded-full">
                   {photo.category}
                 </span>
               </CardContent>
